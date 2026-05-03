@@ -174,22 +174,36 @@
   }
   .wordmark {
     font-family: var(--serif);
-    font-weight: 500;
-    font-size: 22px;
-    letter-spacing: -0.01em;
+    font-size: 23px;
     color: var(--ink);
     text-decoration: none;
     display: inline-flex;
-    align-items: baseline;
-    gap: 2px;
+    align-items: center;
+    gap: 9px;
   }
-  .wordmark .dot {
-    display: inline-block;
-    width: 5px; height: 5px;
-    background: var(--sage);
-    border-radius: 1px;
-    transform: translateY(-3px);
-    margin: 0 4px;
+  .wordmark-icon {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .wordmark-text {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0;
+  }
+  .wordmark .part-physio {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 0.87em;
+    color: var(--sage-deep);
+    letter-spacing: 0.005em;
+  }
+  .wordmark .part-ready {
+    font-weight: 500;
+    font-size: 1em;
+    color: var(--ink);
+    letter-spacing: -0.015em;
   }
   .nav-links {
     display: none;
@@ -996,7 +1010,7 @@
 <header class="nav" id="nav">
   <div class="nav-inner">
     <a href="#top" class="wordmark" aria-label="PhysioReady home">
-      Physio<span class="dot" aria-hidden="true"></span>Ready
+      <span class="wordmark-icon" aria-hidden="true"><svg width="13" height="17" viewBox="0 0 13 17" fill="none" focusable="false"><path d="M6.5 16 C0.5 11 0.5 4 6.5 1 C12.5 4 12.5 11 6.5 16Z" fill="#E8ECDF" stroke="#7A8B6F" stroke-width="1.15" stroke-linejoin="round"/><line x1="6.5" y1="16" x2="6.5" y2="7.5" stroke="#7A8B6F" stroke-width="1" stroke-linecap="round"/></svg></span><span class="wordmark-text"><span class="part-physio">Physio</span><span class="part-ready">Ready</span></span>
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="#about">About</a>
@@ -1016,7 +1030,7 @@
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <div class="mobile-menu-head">
     <a href="#top" class="wordmark" data-close>
-      Physio<span class="dot" aria-hidden="true"></span>Ready
+      <span class="wordmark-icon" aria-hidden="true"><svg width="13" height="17" viewBox="0 0 13 17" fill="none" focusable="false"><path d="M6.5 16 C0.5 11 0.5 4 6.5 1 C12.5 4 12.5 11 6.5 16Z" fill="#E8ECDF" stroke="#7A8B6F" stroke-width="1.15" stroke-linejoin="round"/><line x1="6.5" y1="16" x2="6.5" y2="7.5" stroke="#7A8B6F" stroke-width="1" stroke-linecap="round"/></svg></span><span class="wordmark-text"><span class="part-physio">Physio</span><span class="part-ready">Ready</span></span>
     </a>
     <button class="nav-toggle" id="navClose" aria-label="Close menu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
@@ -1354,7 +1368,7 @@
     <div class="footer-grid">
       <div class="footer-mark">
         <a href="#top" class="wordmark" aria-label="PhysioReady home">
-          Physio<span class="dot" aria-hidden="true"></span>Ready
+          <span class="wordmark-icon" aria-hidden="true"><svg width="13" height="17" viewBox="0 0 13 17" fill="none" focusable="false"><path d="M6.5 16 C0.5 11 0.5 4 6.5 1 C12.5 4 12.5 11 6.5 16Z" fill="#E8ECDF" stroke="#7A8B6F" stroke-width="1.15" stroke-linejoin="round"/><line x1="6.5" y1="16" x2="6.5" y2="7.5" stroke="#7A8B6F" stroke-width="1" stroke-linecap="round"/></svg></span><span class="wordmark-text"><span class="part-physio">Physio</span><span class="part-ready">Ready</span></span>
         </a>
         <span class="tag">Canadian physiotherapy school admissions mentorship.</span>
       </div>
