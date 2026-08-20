@@ -1,1454 +1,1153 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>PhysioReady | Canadian Physiotherapy School Admissions Mentorship</title>
-<meta name="description" content="Personalized 1:1 mentorship for students applying to physiotherapy school in Canada. Application support, MMI interview prep, and full cycle guidance from a UBC MScPT student." />
-<meta name="theme-color" content="#F5F1EA" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aevon — Custom Business Apps</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;1,14..32,400&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Gemma",
-  "jobTitle": "Physiotherapy School Admissions Mentor",
-  "description": "First-year MScPT student at the University of British Columbia and founder of PhysioReady, a 1:1 mentorship practice for Canadian physiotherapy school applicants.",
-  "alumniOf": {
-    "@type": "CollegeOrUniversity",
-    "name": "University of British Columbia"
-  },
-  "knowsAbout": [
-    "Physiotherapy school admissions",
-    "MMI interview preparation",
-    "Canadian MScPT applications",
-    "UBC physiotherapy",
-    "McMaster physiotherapy",
-    "University of Toronto physiotherapy",
-    "Dalhousie physiotherapy"
-  ],
-  "worksFor": {
-    "@type": "Organization",
-    "name": "PhysioReady"
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "CA"
-  }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "PhysioReady",
-  "description": "1:1 mentorship for students applying to physiotherapy school in Canada. Application support, MMI interview preparation, and full cycle guidance.",
-  "url": "https://physioready.ca",
-  "areaServed": {
-    "@type": "Country",
-    "name": "Canada"
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "CA"
-  },
-  "founder": {
-    "@type": "Person",
-    "name": "Gemma"
-  },
-  "priceRange": "$$",
-  "serviceType": [
-    "Physiotherapy School Application Mentorship",
-    "MMI Interview Preparation",
-    "Full Cycle Admissions Support"
-  ]
-}
-</script>
-
-<style>
-  /* ---------- Tokens ---------- */
-  :root {
-    --base:        #F5F1EA;      /* warm off-white */
-    --surface:     #FAF7F2;      /* card surface */
-    --surface-2:   #EFE9DE;      /* deeper warm panel */
-    --hairline:    #E2DBCD;
-    --hairline-2:  #D4CCB8;
-    --ink:         #2A2724;      /* warm charcoal */
-    --ink-soft:    #4A453F;
-    --muted:       #6B645C;
-    --sage:        #7A8B6F;
-    --sage-deep:   #5A6B52;
-    --sage-soft:   #C9D1BF;
-    --sage-tint:   #E8ECDF;
-
-    --serif: "Cormorant Garamond", "EB Garamond", Georgia, "Times New Roman", serif;
-    --sans:  "Manrope", -apple-system, "Segoe UI", system-ui, sans-serif;
-
-    --radius-sm: 10px;
-    --radius:    16px;
-    --radius-lg: 22px;
-
-    --maxw: 1120px;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; }
-  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: var(--base);
-    color: var(--ink);
-    font-family: var(--sans);
-    font-size: 16px;
-    line-height: 1.6;
-    font-weight: 400;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-  }
-  img { max-width: 100%; display: block; }
-  a { color: inherit; }
-  button { font-family: inherit; }
-
-  /* ---------- Type ---------- */
-  .eyebrow {
-    font-family: var(--sans);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--sage-deep);
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .eyebrow::before {
-    content: "";
-    width: 22px;
-    height: 1px;
-    background: var(--sage);
-    display: inline-block;
-  }
-  h1, h2, h3, h4 {
-    font-family: var(--serif);
-    font-weight: 500;
-    color: var(--ink);
-    letter-spacing: -0.01em;
-    line-height: 1.1;
-    margin: 0;
-    text-wrap: balance;
-  }
-  h1 { font-size: clamp(40px, 9vw, 76px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.05; padding-bottom: 0.08em; }
-  h2 { font-size: clamp(30px, 5.4vw, 48px); }
-  h3 { font-size: clamp(22px, 3vw, 26px); }
-  p  { margin: 0; text-wrap: pretty; }
-  .lede { font-size: clamp(16px, 2.2vw, 18px); color: var(--ink-soft); line-height: 1.65; }
-
-  /* ---------- Layout ---------- */
-  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 22px; }
-  section { padding: 60px 0; position: relative; }
-  @media (min-width: 820px) { section { padding: 112px 0; } }
-@media (min-width: 820px) { .hero-sub { margin-top: 32px; } }
-
-  .section-head { display: flex; flex-direction: column; gap: 22px; margin-bottom: 44px; max-width: 720px; }
-  @media (min-width: 820px) { .section-head { margin-bottom: 64px; } }
-
-  /* ---------- Nav ---------- */
-  .nav {
-    position: sticky; top: 0; z-index: 50;
-    background: color-mix(in oklab, var(--base) 86%, transparent);
-    backdrop-filter: saturate(140%) blur(14px);
-    -webkit-backdrop-filter: saturate(140%) blur(14px);
-    border-bottom: 1px solid transparent;
-    transition: border-color .2s ease, background .2s ease;
-  }
-  .nav.scrolled { border-bottom-color: var(--hairline); }
-  .nav-inner {
-    max-width: var(--maxw);
-    margin: 0 auto;
-    padding: 14px 22px;
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 16px;
-  }
-  .wordmark {
-    font-family: var(--serif);
-    font-size: 23px;
-    color: var(--ink);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-  }
-  .wordmark-icon {
-    display: inline-flex;
-    align-items: center;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-  .wordmark-text {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 0;
-  }
-  .wordmark .part-physio {
-    font-style: italic;
-    font-weight: 400;
-    font-size: 0.87em;
-    color: var(--sage-deep);
-    letter-spacing: 0.005em;
-  }
-  .wordmark .part-ready {
-    font-weight: 500;
-    font-size: 1em;
-    color: var(--ink);
-    letter-spacing: -0.015em;
-  }
-  .nav-links {
-    display: none;
-    gap: 28px;
-    align-items: center;
-  }
-  .nav-links a {
-    text-decoration: none;
-    color: var(--ink-soft);
-    font-size: 14px;
-    font-weight: 500;
-    transition: color .15s ease;
-  }
-  .nav-links a:hover { color: var(--sage-deep); }
-  @media (min-width: 820px) { .nav-links { display: flex; } }
-
-  .nav-toggle {
-    display: inline-flex;
-    align-items: center; justify-content: center;
-    width: 40px; height: 40px;
-    border: 1px solid var(--hairline);
-    background: var(--surface);
-    border-radius: 999px;
-    cursor: pointer;
-    color: var(--ink);
-  }
-  @media (min-width: 820px) { .nav-toggle { display: none; } }
-  .nav-toggle svg { width: 16px; height: 16px; }
-
-  .mobile-menu {
-    position: fixed; inset: 0;
-    background: var(--base);
-    z-index: 60;
-    transform: translateY(-100%);
-    transition: transform .35s cubic-bezier(.5,.05,.2,1);
-    display: flex; flex-direction: column;
-    padding: 22px;
-  }
-  .mobile-menu.open { transform: translateY(0); }
-  .mobile-menu-head {
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .mobile-menu-list {
-    margin-top: 64px;
-    display: flex; flex-direction: column;
-    gap: 4px;
-  }
-  .mobile-menu-list a {
-    font-family: var(--serif);
-    font-size: 38px;
-    font-weight: 500;
-    color: var(--ink);
-    text-decoration: none;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--hairline);
-    letter-spacing: -0.01em;
-  }
-  .mobile-menu-list a:last-child { border-bottom: 0; }
-  .mobile-menu-foot {
-    margin-top: auto;
-    padding-top: 24px;
-    color: var(--muted);
-    font-size: 13px;
-    display: flex; justify-content: space-between;
-  }
-
-  /* ---------- Buttons ---------- */
-  .btn {
-    display: inline-flex;
-    align-items: center; gap: 10px;
-    padding: 15px 22px;
-    background: var(--sage);
-    color: #FAF7F2;
-    border: 0;
-    border-radius: 999px;
-    text-decoration: none;
-    font-family: var(--sans);
-    font-weight: 600;
-    font-size: 15px;
-    letter-spacing: 0.005em;
-    cursor: pointer;
-    transition: background .18s ease, transform .18s ease;
-  }
-  .btn:hover { background: var(--sage-deep); }
-  .btn:active { transform: translateY(1px); }
-  .btn .arrow {
-    width: 16px; height: 16px;
-    transition: transform .2s ease;
-  }
-  .btn:hover .arrow { transform: translateX(3px); }
-
-  .btn-ghost {
-    display: inline-flex; align-items: center; gap: 8px;
-    color: var(--sage-deep);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 14px;
-    border-bottom: 1px solid var(--sage-soft);
-    padding-bottom: 2px;
-    transition: border-color .15s ease, color .15s ease;
-  }
-  .btn-ghost:hover { color: var(--ink); border-bottom-color: var(--sage-deep); }
-
-  /* ---------- Hero ---------- */
-  .hero {
-    padding-top: 56px;
-    padding-bottom: 96px;
-    position: relative;
-    overflow: hidden;
-  }
-  @media (min-width: 820px) { .hero { padding-top: 92px; padding-bottom: 140px; } }
-
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 36px;
-    align-items: end;
-  }
-  @media (min-width: 900px) {
-    .hero-grid { grid-template-columns: 1.4fr 1fr; gap: 64px; align-items: end; }
-  }
-
-  .hero h1 .accent {
-    font-style: italic;
-    font-weight: 400;
-    color: var(--sage-deep);
-  }
-  .hero-sub {
-    margin-top: 36px;
-    max-width: 540px;
-    font-size: clamp(16px, 2.2vw, 19px);
-    color: var(--ink-soft);
-    line-height: 1.65;
-  }
-  .hero-cta-row {
-    margin-top: 36px;
-    display: flex; flex-wrap: wrap;
-    align-items: center; gap: 22px;
-  }
-  .hero-meta {
-    margin-top: 56px;
-    display: flex; flex-wrap: wrap; gap: 22px 36px;
-    padding-top: 24px;
-    border-top: 1px solid var(--hairline);
-    color: var(--muted);
-    font-size: 13px;
-    letter-spacing: 0.02em;
-  }
-  .hero-meta strong { color: var(--ink); font-weight: 600; }
-
-  /* Hero side card */
-  .hero-card {
-    border: 1px solid var(--hairline);
-    background: var(--surface);
-    border-radius: var(--radius-lg);
-    padding: 28px;
-    position: relative;
-  }
-  .hero-card-label {
-    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--sage-deep); font-weight: 600;
-  }
-  .hero-card-title {
-    font-family: var(--serif);
-    font-size: 26px;
-    margin-top: 14px;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-  }
-  .hero-card ul {
-    margin: 22px 0 0; padding: 0; list-style: none;
-    display: flex; flex-direction: column; gap: 10px;
-  }
-  .hero-card li {
-    display: flex; align-items: center; gap: 12px;
-    color: var(--ink-soft);
-    font-size: 14.5px;
-  }
-  .hero-card li::before {
-    content: ""; width: 6px; height: 6px; background: var(--sage);
-    border-radius: 1px; transform: rotate(45deg);
-  }
-  .hero-card-foot {
-    margin-top: 26px; padding-top: 18px;
-    border-top: 1px solid var(--hairline);
-    font-size: 13px; color: var(--muted);
-    display: flex; justify-content: space-between; align-items: center;
-  }
-
-  /* Availability card */
-  .avail-row {
-    margin-top: 22px;
-    display: flex; gap: 6px; flex-wrap: wrap;
-  }
-  .avail-dot {
-    width: 22px; height: 22px;
-    border-radius: 50%;
-    flex: 0 0 auto;
-  }
-  .avail-dot--on   { background: var(--sage); }
-  .avail-dot--open {
-    background: transparent;
-    border: 1.5px dashed var(--hairline-2);
-  }
-  .avail-line {
-    margin-top: 18px;
-    font-size: 15.5px;
-    color: var(--ink);
-    letter-spacing: 0.005em;
-  }
-  .avail-line strong {
-    color: var(--sage-deep);
-    font-weight: 600;
-  }
-  .avail-sub {
-    margin-top: 10px;
-    font-size: 13.5px;
-    color: var(--ink-soft);
-    line-height: 1.6;
-  }
-
-  /* Subtle background ornament */
-  .hero::before {
-    content: "";
-    position: absolute;
-    right: -120px; top: -80px;
-    width: 420px; height: 420px;
-    background: radial-gradient(closest-side, var(--sage-tint), transparent 70%);
-    opacity: 0.7;
-    pointer-events: none;
-    z-index: 0;
-  }
-  .hero .wrap { position: relative; z-index: 1; }
-
-  /* ---------- About ---------- */
-  .about {
-    background: var(--surface);
-    border-top: 1px solid var(--hairline);
-    border-bottom: 1px solid var(--hairline);
-  }
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-  @media (min-width: 900px) {
-    .about-grid { grid-template-columns: 0.9fr 1.3fr; gap: 80px; }
-  }
-  .about-aside {
-    border-left: 1px solid var(--sage);
-    padding-left: 22px;
-  }
-  .about-aside .signature {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 28px;
-    color: var(--sage-deep);
-    line-height: 1.1;
-  }
-  .about-aside .role {
-    margin-top: 6px;
-    color: var(--muted);
-    font-size: 14px;
-    letter-spacing: 0.02em;
-  }
-  .about-creds {
-    margin: 28px 0 0; padding: 0;
-    list-style: none;
-    display: flex; flex-direction: column;
-  }
-  .about-creds li {
-    display: flex; align-items: center; gap: 10px;
-    padding: 12px 0;
-    border-top: 1px solid var(--hairline);
-    font-size: 13.5px;
-    color: var(--ink-soft);
-    letter-spacing: 0.005em;
-  }
-  .about-creds li:last-child { border-bottom: 1px solid var(--hairline); }
-  .about-creds li::before {
-    content: ""; width: 4px; height: 4px;
-    background: var(--sage); border-radius: 50%;
-    flex: 0 0 auto;
-  }
-  /* legacy stats kept for safety */
-  .about-stats {
-    margin-top: 28px;
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-  }
-  .about-stats .stat {
-    border-top: 1px solid var(--hairline);
-    padding-top: 12px;
-  }
-  .about-stats .num {
-    font-family: var(--serif);
-    font-size: 32px;
-    color: var(--ink);
-    line-height: 1;
-  }
-  .about-stats .lab {
-    margin-top: 6px;
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-  .about-body p + p { margin-top: 20px; }
-  .about-body .first-line + p { margin-top: 24px; }
-  .about-body p {
-    font-size: clamp(16px, 2.1vw, 18px);
-    color: var(--ink-soft);
-    line-height: 1.7;
-  }
-  .about-body .first-line {
-    font-family: var(--serif);
-    font-size: clamp(22px, 3.2vw, 28px);
-    color: var(--ink);
-    line-height: 1.3;
-    margin-bottom: 22px;
-    letter-spacing: -0.005em;
-  }
-
-  /* ---------- Services ---------- */
-  .services-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-  @media (min-width: 760px) { .services-grid { grid-template-columns: repeat(3, 1fr); gap: 22px; } }
-
-  .service-card {
-    background: var(--surface);
-    border: 1px solid var(--hairline);
-    border-radius: var(--radius);
-    padding: 28px 26px 30px;
-    display: flex; flex-direction: column;
-    transition: border-color .18s ease, transform .18s ease;
-    position: relative;
-  }
-  .service-card:hover { border-color: var(--sage-soft); transform: translateY(-2px); }
-  .service-num {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 14px;
-    color: var(--sage-deep);
-    letter-spacing: 0.05em;
-  }
-  .service-icon {
-    width: 44px; height: 44px;
-    border-radius: 12px;
-    background: var(--sage-tint);
-    color: var(--sage-deep);
-    display: inline-flex; align-items: center; justify-content: center;
-    margin-bottom: 22px;
-  }
-  .service-icon svg { width: 22px; height: 22px; }
-  .service-card h3 {
-    font-size: clamp(22px, 2.6vw, 24px);
-    margin-bottom: 10px;
-  }
-  .service-card p {
-    color: var(--ink-soft);
-    font-size: 15px;
-    line-height: 1.6;
-    margin-bottom: 22px;
-  }
-  .service-card .btn-ghost { margin-top: auto; align-self: flex-start; }
-
-  /* ---------- Who it's for ---------- */
-  .audience {
-    background: var(--surface-2);
-    border-top: 1px solid var(--hairline);
-    border-bottom: 1px solid var(--hairline);
-  }
-  .audience-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-  @media (min-width: 760px) { .audience-grid { grid-template-columns: repeat(3, 1fr); } }
-  .persona {
-    padding: 28px 0;
-    border-top: 1px solid var(--hairline-2);
-  }
-  @media (min-width: 760px) {
-    .persona { padding: 32px 28px; border-top: 0; border-left: 1px solid var(--hairline-2); }
-    .persona:first-child { border-left: 0; padding-left: 0; }
-    .persona:last-child { padding-right: 0; }
-  }
-  .persona-stage {
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--sage-deep);
-    font-weight: 600;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .persona-stage .dot {
-    width: 6px; height: 6px; background: var(--sage); border-radius: 1px; transform: rotate(45deg);
-  }
-  .persona h3 {
-    margin-top: 14px;
-    font-size: clamp(22px, 2.4vw, 24px);
-  }
-  .persona p {
-    margin-top: 12px;
-    color: var(--ink-soft);
-    font-size: 15.5px;
-    line-height: 1.6;
-  }
-
-  /* ---------- Insights ---------- */
-  .insights-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-  @media (min-width: 760px) {
-    .insights-grid {
-      grid-template-columns: repeat(6, 1fr);
-      gap: 18px;
+    :root {
+      --bg:       #09090B;
+      --bg2:      #0A0F1E;
+      --bg3:      #0F1629;
+      --bg4:      #141d35;
+      --border:   rgba(99,102,241,0.12);
+      --border2:  rgba(99,102,241,0.25);
+      --accent:   #6366F1;
+      --accent2:  #7C3AED;
+      --accent-glow: rgba(99,102,241,0.22);
+      --accent-dim:  rgba(99,102,241,0.1);
+      --text:     #F8FAFC;
+      --text2:    #94A3B8;
+      --text3:    #475569;
+      --r:        10px;
     }
-    .insight-wide        { grid-column: span 6; }
-    .insight-stat        { grid-column: span 2; }
-    .insight-donut-wide  { grid-column: span 2; }
-  }
-  .insight {
-    background: var(--surface);
-    border: 1px solid var(--hairline);
-    border-radius: var(--radius);
-    padding: 26px 24px 28px;
-    display: flex; flex-direction: column;
-  }
-  .insight.sage {
-    background: var(--sage);
-    color: #F5F1EA;
-    border-color: var(--sage);
-  }
-  .insight.sage .insight-label { color: var(--sage-soft); }
-  .insight.sage .insight-label::before { background: var(--sage-soft); }
-  .insight.sage p { color: #E8ECDF; }
-  .insight.sage .big-number { color: #F5F1EA; }
-  .insight.sage .divider { color: var(--sage-soft); }
 
-  .insight-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--sage-deep);
-    display: inline-flex; align-items: center; gap: 10px;
-    margin-bottom: 16px;
-  }
-  .insight-label::before {
-    content: ""; width: 18px; height: 1px; background: var(--sage);
-  }
-  .insight-title {
-    font-family: var(--serif);
-    font-size: clamp(22px, 3vw, 28px);
-    font-weight: 500;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-    margin: 0 0 22px;
-    max-width: 540px;
-  }
-  .insight-title-sm {
-    font-family: var(--serif);
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 1.25;
-    margin: 0 0 18px;
-  }
-  .insight p {
-    color: var(--ink-soft);
-    font-size: 14.5px;
-    line-height: 1.55;
-    margin: 0;
-  }
-  .insight-note {
-    margin-top: 18px !important;
-    font-size: 12px !important;
-    color: var(--muted) !important;
-    font-style: italic;
-  }
+    html { scroll-behavior: smooth; }
 
-  /* Bar chart */
-  .chart {
-    display: flex; flex-direction: column;
-    gap: 14px;
-    margin: 6px 0 4px;
-  }
-  .bar {
-    display: grid;
-    grid-template-columns: 84px 1fr 56px;
-    align-items: center;
-    gap: 14px;
-  }
-  .bar-label {
-    font-family: var(--sans);
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--ink);
-  }
-  .bar-track {
-    height: 10px;
-    background: var(--base);
-    border: 1px solid var(--hairline);
-    border-radius: 999px;
-    overflow: hidden;
-    position: relative;
-  }
-  .bar-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--sage) 0%, var(--sage-deep) 100%);
-    border-radius: 999px;
-    transition: width 1.2s cubic-bezier(.4,0,.2,1);
-  }
-  .bar-val {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 16px;
-    color: var(--sage-deep);
-    text-align: right;
-  }
-
-  /* Big number stat */
-  .insight-stat .big-number {
-    font-family: var(--serif);
-    font-size: clamp(56px, 9vw, 80px);
-    line-height: 1;
-    color: var(--ink);
-    letter-spacing: -0.02em;
-    margin-bottom: 14px;
-    display: inline-flex; align-items: baseline;
-  }
-  .insight-stat .plus { color: var(--sage-deep); font-size: 0.6em; margin-left: 2px; }
-  .insight-stat .divider {
-    font-family: var(--sans);
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--sage-deep);
-    margin: 0 14px;
-    align-self: center;
-  }
-
-  /* Donut */
-  .insight-donut-wide .donut {
-    width: 140px; height: 140px;
-    margin: 0 0 20px;
-  }
-  .insight-donut-wide .donut svg { width: 100%; height: 100%; }
-
-  /* Timeline (Audience section) */
-  .timeline-feature {
-    position: relative;
-    margin: 0 0 56px;
-    padding: 28px 0 8px;
-  }
-  .tl-list {
-    list-style: none; margin: 0; padding: 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 22px;
-    position: relative;
-  }
-  .tl-track {
-    position: absolute;
-    left: 11px; top: 28px; bottom: 8px;
-    width: 1px;
-    background: var(--hairline-2);
-  }
-  .tl-item {
-    display: grid;
-    grid-template-columns: 24px 1fr;
-    grid-template-rows: auto auto;
-    column-gap: 18px;
-    align-items: baseline;
-  }
-  .tl-node {
-    grid-row: 1 / span 2;
-    grid-column: 1;
-    width: 24px;
-    display: flex; align-items: center; justify-content: center;
-    padding-top: 6px;
-  }
-  .tl-dot {
-    width: 11px; height: 11px;
-    background: var(--base);
-    border: 1.5px solid var(--sage);
-    border-radius: 50%;
-    display: block;
-  }
-  .tl-dot-final {
-    background: var(--sage);
-    border-color: var(--sage-deep);
-    box-shadow: 0 0 0 4px var(--sage-tint);
-  }
-  .tl-month {
-    grid-column: 2;
-    font-family: var(--sans);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--sage-deep);
-  }
-  .tl-event {
-    grid-column: 2;
-    font-family: var(--serif);
-    font-size: clamp(20px, 3.2vw, 26px);
-    color: var(--ink);
-    line-height: 1.25;
-    letter-spacing: -0.01em;
-    margin-top: 4px;
-  }
-  @media (min-width: 820px) {
-    .timeline-feature { margin: 0 0 80px; padding: 16px 0 8px; }
-    .tl-list {
-      grid-template-columns: repeat(5, 1fr);
-      gap: 0;
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
-    .tl-track {
-      left: 5%; right: 5%; top: 28px; bottom: auto;
-      width: auto; height: 1px;
+
+    ::selection { background: rgba(99,102,241,0.25); }
+
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+
+    /* Progress bar */
+    #progress-bar {
+      position: fixed; top: 0; left: 0; height: 2px; z-index: 200;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      width: 0%; transition: width 0.1s linear;
+      box-shadow: 0 0 10px var(--accent-glow);
     }
-    .tl-item {
-      grid-template-columns: 1fr;
-      grid-template-rows: auto auto auto;
-      gap: 0;
-      padding: 0 14px;
-      text-align: left;
+
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 40px; }
+
+    /* Fade-in animation */
+    .fi { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .fi.vis { opacity: 1; transform: none; }
+
+    /* ──────────── NAV ──────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 62px; display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px;
+      transition: background 0.3s, border-color 0.3s, backdrop-filter 0.3s;
+      border-bottom: 1px solid transparent;
     }
-    .tl-node {
-      grid-row: 1; grid-column: 1;
-      width: auto; padding-top: 0; padding-bottom: 18px;
-      justify-content: flex-start;
+    nav.scrolled {
+      background: rgba(9,9,11,0.8);
+      backdrop-filter: blur(20px);
+      border-color: var(--border);
     }
-    .tl-month { grid-column: 1; margin-top: 0; }
-    .tl-event { grid-column: 1; margin-top: 8px; }
-  }
+    .nav-logo {
+      font-size: 17px; font-weight: 750; letter-spacing: -0.04em;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .nav-logo-mark {
+      width: 28px; height: 28px; border-radius: 7px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 800; color: #fff; letter-spacing: -0.02em;
+    }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a {
+      color: var(--text2); text-decoration: none; font-size: 13.5px; font-weight: 500;
+      transition: color 0.2s; letter-spacing: -0.01em;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--accent) !important; color: #fff !important;
+      padding: 8px 18px; border-radius: 7px; font-weight: 600 !important; font-size: 13px !important;
+      transition: opacity 0.2s !important; box-shadow: 0 0 20px rgba(99,102,241,0.3);
+      white-space: nowrap;
+    }
+    .nav-cta:hover { opacity: 0.85; }
 
-  /* ---------- Contact ---------- */
-  .contact {
-    background: var(--ink);
-    color: #EDE7DA;
-  }
-  .contact h2 { color: #F5F1EA; }
-  .contact .eyebrow { color: var(--sage-soft); }
-  .contact .eyebrow::before { background: var(--sage-soft); }
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-  @media (min-width: 900px) {
-    .contact-grid { grid-template-columns: 1fr 1.1fr; gap: 80px; }
-  }
-  .contact-intro p {
-    margin-top: 22px;
-    color: #C9C2B5;
-    font-size: clamp(16px, 2.1vw, 17.5px);
-    line-height: 1.7;
-    max-width: 440px;
-  }
-  .contact-direct {
-    margin-top: 32px;
-    padding-top: 24px;
-    border-top: 1px solid #3A3631;
-    font-size: 14px;
-    color: #C9C2B5;
-  }
-  .contact-direct a {
-    color: #F5F1EA;
-    text-decoration: underline;
-    text-decoration-color: var(--sage-soft);
-    text-underline-offset: 4px;
-  }
-  .contact-direct .row { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; }
-  .contact-direct .label { color: var(--sage-soft); letter-spacing: 0.14em; text-transform: uppercase; font-size: 11px; font-weight: 600; }
+    /* ──────────── HERO ──────────── */
+    .hero {
+      min-height: 100vh; padding: 140px 40px 80px;
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+    }
+    /* Mesh gradient blobs */
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 40%, rgba(99,102,241,0.09) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 70%, rgba(124,58,237,0.06) 0%, transparent 70%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(99,102,241,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99,102,241,0.04) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(ellipse 90% 80% at 50% 30%, black 20%, transparent 100%);
+    }
+    .hero-inner {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+      max-width: 1120px; margin: 0 auto; width: 100%;
+    }
+    .hero-left {}
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.25);
+      border-radius: 100px; padding: 5px 14px 5px 10px;
+      font-size: 11.5px; font-weight: 600; color: #a5b4fc;
+      letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 28px;
+    }
+    .badge-dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+      animation: bdot 2s infinite;
+    }
+    @keyframes bdot { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
 
-  .form {
-    background: #322E29;
-    border: 1px solid #3F3A34;
-    border-radius: var(--radius-lg);
-    padding: 26px;
-  }
-  .form-row { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
-  .form-row label {
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--sage-soft);
-    font-weight: 600;
-  }
-  .form-row input,
-  .form-row textarea {
-    background: transparent;
-    border: 0;
-    border-bottom: 1px solid #4A4540;
-    padding: 10px 0;
-    color: #F5F1EA;
-    font-family: var(--sans);
-    font-size: 16px;
-    outline: 0;
-    transition: border-color .18s ease;
-  }
-  .form-row input:focus,
-  .form-row textarea:focus { border-bottom-color: var(--sage-soft); }
-  .form-row textarea { resize: vertical; min-height: 100px; }
-  .form .btn { width: 100%; justify-content: center; margin-top: 8px; padding: 16px 22px; }
-  .form-foot {
-    margin-top: 14px;
-    font-size: 12.5px;
-    color: #9A9388;
-    line-height: 1.5;
-  }
-  .form-success {
-    text-align: center;
-    padding: 28px 0;
-  }
-  .form-success .check {
-    width: 44px; height: 44px;
-    margin: 0 auto 16px;
-    border-radius: 999px;
-    background: var(--sage-soft);
-    color: var(--ink);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .form-success h3 { color: #F5F1EA; font-size: 24px; }
-  .form-success p { margin-top: 10px; color: #C9C2B5; font-size: 14.5px; }
+    .hero h1 {
+      font-size: clamp(34px, 3.8vw, 58px);
+      font-weight: 800; line-height: 1.1; letter-spacing: -0.04em;
+      margin-bottom: 26px; text-wrap: balance;
+    }
+    .hero h1 .grad {
+      background: linear-gradient(130deg, #a5b4fc 0%, #c4b5fd 50%, #818cf8 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-sub {
+      font-size: 17px; color: var(--text2); line-height: 1.7;
+      margin-bottom: 36px; max-width: 480px; text-wrap: balance;
+    }
+    .hero-ctas { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 20px; }
+    .btn-pri {
+      background: var(--accent); color: #fff;
+      padding: 13px 26px; border-radius: 8px; font-size: 14.5px; font-weight: 600;
+      border: none; cursor: pointer; font-family: 'Inter', sans-serif;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+      letter-spacing: -0.01em;
+      box-shadow: 0 0 32px rgba(99,102,241,0.35);
+      transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-pri:hover { opacity: 0.9; transform: translateY(-1px); box-shadow: 0 4px 40px rgba(99,102,241,0.5); }
+    .btn-sec {
+      background: transparent; color: var(--text2);
+      border: 1px solid rgba(255,255,255,0.1); padding: 13px 26px; border-radius: 8px;
+      font-size: 14.5px; font-weight: 500; cursor: pointer; font-family: 'Inter', sans-serif;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+      letter-spacing: -0.01em; transition: all 0.2s;
+    }
+    .btn-sec:hover { background: rgba(255,255,255,0.05); color: var(--text); border-color: rgba(255,255,255,0.18); }
+    .hero-trust { font-size: 12.5px; color: var(--text3); letter-spacing: 0.01em; }
 
-  /* ---------- Footer ---------- */
-  footer {
-    background: var(--base);
-    padding: 48px 0 36px;
-    border-top: 1px solid var(--hairline);
-  }
-  .footer-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-  }
-  @media (min-width: 760px) {
-    .footer-grid { flex-direction: row; align-items: flex-end; justify-content: space-between; }
-  }
-  .footer-mark .tag {
-    display: block;
-    margin-top: 8px;
-    color: var(--muted);
-    font-size: 14px;
-    max-width: 320px;
-    line-height: 1.5;
-  }
-  .footer-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    font-size: 13px;
-    color: var(--muted);
-  }
-  @media (min-width: 760px) { .footer-meta { align-items: flex-end; } }
-  .footer-meta a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--sage-soft); padding-bottom: 1px; }
-  .footer-fine {
-    margin-top: 36px;
-    padding-top: 18px;
-    border-top: 1px solid var(--hairline);
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
-    font-size: 12px;
-    color: var(--muted);
-    letter-spacing: 0.04em;
-  }
+    /* ── Hero Dashboard Visual ── */
+    .hero-right { position: relative; }
+    .dashboard-wrap {
+      position: relative;
+      transform: perspective(1200px) rotateY(-8deg) rotateX(3deg);
+      transform-style: preserve-3d;
+      transition: transform 0.6s ease;
+    }
+    .dashboard-wrap:hover {
+      transform: perspective(1200px) rotateY(-4deg) rotateX(1deg);
+    }
+    .dashboard {
+      background: var(--bg2);
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: 14px; overflow: hidden;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(99,102,241,0.1), inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+    .db-header {
+      background: var(--bg3); border-bottom: 1px solid var(--border);
+      padding: 12px 18px; display: flex; align-items: center; gap: 12px;
+    }
+    .db-dots { display: flex; gap: 6px; }
+    .db-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .db-dot:nth-child(1) { background: #FF5F57; }
+    .db-dot:nth-child(2) { background: #FFBD2E; }
+    .db-dot:nth-child(3) { background: #28C840; }
+    .db-title { font-size: 12px; color: var(--text3); font-weight: 500; margin-left: 4px; }
+    .db-body { padding: 20px; }
+    .db-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 14px; }
+    .db-metric {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 9px; padding: 14px;
+    }
+    .db-metric-label { font-size: 10px; color: var(--text3); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+    .db-metric-val { font-size: 22px; font-weight: 750; letter-spacing: -0.04em; color: var(--text); }
+    .db-metric-delta { font-size: 10px; color: #4ade80; font-weight: 600; margin-top: 2px; }
+    .db-chart { background: var(--bg3); border: 1px solid var(--border); border-radius: 9px; padding: 14px; margin-bottom: 14px; }
+    .db-chart-label { font-size: 10px; color: var(--text3); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+    .db-bars { display: flex; align-items: flex-end; gap: 5px; height: 52px; }
+    .db-bar {
+      flex: 1; border-radius: 3px 3px 0 0;
+      background: linear-gradient(to top, var(--accent), var(--accent2));
+      opacity: 0.7; transition: opacity 0.2s;
+      animation: barGrow 0.8s ease forwards;
+      transform-origin: bottom;
+    }
+    .db-bar:nth-child(7) { opacity: 1; box-shadow: 0 0 10px rgba(99,102,241,0.4); }
+    @keyframes barGrow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+    .db-feed { display: flex; flex-direction: column; gap: 7px; }
+    .db-feed-item {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 7px; padding: 10px 12px;
+      display: flex; align-items: center; gap: 10px;
+      font-size: 11px;
+    }
+    .db-feed-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .db-feed-text { color: var(--text2); flex: 1; }
+    .db-feed-time { color: var(--text3); }
+    .db-live-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: rgba(74,222,128,0.1); border: 1px solid rgba(74,222,128,0.2);
+      border-radius: 100px; padding: 3px 9px; font-size: 10px; font-weight: 600;
+      color: #4ade80; margin-left: auto;
+    }
+    .db-live-dot { width: 5px; height: 5px; border-radius: 50%; background: #4ade80; animation: bdot 1.5s infinite; }
+    /* Floating notification */
+    .db-notif {
+      position: absolute; bottom: -16px; right: -20px;
+      background: var(--bg3); border: 1px solid rgba(99,102,241,0.3);
+      border-radius: 10px; padding: 12px 14px;
+      display: flex; align-items: center; gap: 10px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      min-width: 200px;
+      animation: floatNotif 3s ease-in-out infinite;
+    }
+    @keyframes floatNotif {
+      0%,100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+    .db-notif-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: var(--accent-dim); display: flex; align-items: center; justify-content: center;
+      font-size: 14px; flex-shrink: 0;
+    }
+    .db-notif-title { font-size: 11.5px; font-weight: 600; color: var(--text); }
+    .db-notif-sub { font-size: 10.5px; color: var(--text2); }
 
-  /* ---------- A11y ---------- */
-  :focus-visible {
-    outline: 2px solid var(--sage-deep);
-    outline-offset: 3px;
-    border-radius: 4px;
-  }
-  .skip {
-    position: absolute; left: -9999px;
-    background: var(--ink); color: var(--base);
-    padding: 10px 16px; border-radius: 6px;
-    z-index: 100;
-  }
-  .skip:focus { left: 16px; top: 16px; }
+    /* ──────────── SECTION BASE ──────────── */
+    section { padding: 110px 0; }
+    .sec-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+    }
+    .sec-label::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent); }
+    .sec-title {
+      font-size: clamp(28px, 3.5vw, 44px); font-weight: 800;
+      letter-spacing: -0.035em; line-height: 1.1; margin-bottom: 18px; text-wrap: balance;
+    }
+    .sec-sub { font-size: 17px; color: var(--text2); line-height: 1.7; text-wrap: balance; }
 
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { animation-duration: 0s !important; transition: none !important; }
-    html { scroll-behavior: auto; }
-  }
-</style>
+    /* ──────────── PROBLEM ──────────── */
+    .problem { border-top: 1px solid var(--border); }
+    .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+    .problem-left {}
+    .prob-items { margin-top: 36px; display: flex; flex-direction: column; gap: 0; }
+    .prob-item {
+      display: flex; gap: 18px; align-items: flex-start;
+      padding: 20px 0; border-bottom: 1px solid var(--border);
+      transition: opacity 0.2s; cursor: default;
+    }
+    .prob-item:last-child { border-bottom: none; }
+    .prob-num {
+      font-size: 11px; font-weight: 700; color: var(--accent); letter-spacing: 0.08em;
+      padding-top: 3px; flex-shrink: 0; width: 24px;
+    }
+    .prob-item h4 { font-size: 15px; font-weight: 650; letter-spacing: -0.02em; margin-bottom: 4px; }
+    .prob-item p { font-size: 13.5px; color: var(--text2); line-height: 1.6; }
+    /* Right side: terminal-style widget */
+    .prob-right {}
+    .terminal {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 12px; overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+    }
+    .term-header {
+      background: var(--bg3); padding: 12px 18px;
+      display: flex; align-items: center; gap: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .term-dots { display: flex; gap: 6px; }
+    .term-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .term-dot:nth-child(1) { background: #FF5F57; }
+    .term-dot:nth-child(2) { background: #FFBD2E; }
+    .term-dot:nth-child(3) { background: #28C840; }
+    .term-name { font-size: 11.5px; color: var(--text3); margin-left: 6px; font-weight: 500; }
+    .term-body { padding: 22px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12.5px; line-height: 1.9; }
+    .term-line { display: flex; gap: 10px; }
+    .term-prompt { color: var(--accent); opacity: 0.7; flex-shrink: 0; }
+    .term-cmd { color: #c4b5fd; }
+    .term-out { color: var(--text2); padding-left: 20px; }
+    .term-err { color: #f87171; padding-left: 20px; }
+    .term-ok { color: #4ade80; padding-left: 20px; }
+    .term-cursor { display: inline-block; width: 7px; height: 14px; background: var(--accent); animation: blink 1s infinite; vertical-align: middle; margin-left: 2px; }
+    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0;} }
+
+    /* ──────────── SERVICES ──────────── */
+    .services { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .services-head { text-align: center; margin-bottom: 64px; }
+    .services-head .sec-label { justify-content: center; }
+    .services-head .sec-label::before { display: none; }
+    .services-head .sec-sub { max-width: 520px; margin: 0 auto; }
+    .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .svc-card {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 12px; padding: 32px;
+      position: relative; overflow: hidden;
+      transition: border-color 0.25s, transform 0.2s, box-shadow 0.25s;
+      cursor: default;
+    }
+    .svc-card::after {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(99,102,241,0.4), transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .svc-card:hover { border-color: var(--border2); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(99,102,241,0.1); }
+    .svc-card:hover::after { opacity: 1; }
+    .svc-tag {
+      font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 7px;
+    }
+    .svc-tag::before { content: ''; display: block; width: 16px; height: 1px; background: var(--accent); }
+    .svc-card h3 { font-size: 19px; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 12px; }
+    .svc-card p { font-size: 14px; color: var(--text2); line-height: 1.7; margin-bottom: 20px; }
+    .svc-features { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .svc-features li { font-size: 12.5px; color: var(--text2); display: flex; align-items: center; gap: 8px; }
+    .svc-features li::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+
+    /* ──────────── ROI CALCULATOR ──────────── */
+    .roi { border-top: 1px solid var(--border); }
+    .roi-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .roi-left {}
+    .roi-left .sec-sub { margin-bottom: 0; }
+    .roi-calc {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 16px; padding: 36px;
+    }
+    .roi-sliders { display: flex; flex-direction: column; gap: 28px; margin-bottom: 28px; }
+    .roi-slider-group label {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 13px; font-weight: 600; color: var(--text2); margin-bottom: 12px; letter-spacing: -0.01em;
+    }
+    .roi-slider-group label span {
+      font-size: 14px; font-weight: 700; color: var(--accent);
+    }
+    input[type=range] {
+      width: 100%; height: 4px; border-radius: 2px; appearance: none;
+      background: var(--bg3); outline: none; cursor: pointer;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      appearance: none; width: 18px; height: 18px; border-radius: 50%;
+      background: var(--accent); cursor: pointer; border: 2px solid var(--bg);
+      box-shadow: 0 0 12px rgba(99,102,241,0.5);
+    }
+    input[type=range]::-moz-range-thumb {
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--accent); cursor: pointer; border: 2px solid var(--bg);
+    }
+    .roi-divider { border: none; border-top: 1px solid var(--border); margin-bottom: 24px; }
+    .roi-result-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text3); margin-bottom: 6px; }
+    .roi-result-num {
+      font-size: 42px; font-weight: 800; letter-spacing: -0.05em;
+      color: var(--accent); line-height: 1; margin-bottom: 8px;
+    }
+    .roi-result-sub { font-size: 13px; color: var(--text2); line-height: 1.6; }
+    .roi-payback {
+      margin-top: 16px; background: rgba(74,222,128,0.07); border: 1px solid rgba(74,222,128,0.15);
+      border-radius: 8px; padding: 12px 16px;
+      font-size: 13px; color: #86efac; font-weight: 500;
+    }
+
+    /* ──────────── HOW IT WORKS ──────────── */
+    .how { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .how-head { text-align: center; margin-bottom: 72px; }
+    .how-head .sec-label { justify-content: center; }
+    .how-head .sec-label::before { display: none; }
+    .how-head .sec-sub { max-width: 480px; margin: 0 auto; }
+    .how-steps { display: grid; grid-template-columns: repeat(4, 1fr); position: relative; gap: 24px; }
+    .how-steps::before {
+      content: ''; position: absolute;
+      top: 27px; left: calc(12.5% + 26px); right: calc(12.5% + 26px);
+      height: 1px;
+      background: linear-gradient(90deg, var(--border2), rgba(99,102,241,0.08), var(--border2));
+    }
+    .how-step { padding: 0 12px; text-align: center; }
+    .step-circle {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: var(--bg); border: 1px solid var(--border2);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 22px; position: relative; z-index: 1;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .step-circle:hover { border-color: var(--accent); box-shadow: 0 0 20px rgba(99,102,241,0.3); }
+    .step-circle span { font-size: 13px; font-weight: 700; color: var(--accent); }
+    .how-step h3 { font-size: 15px; font-weight: 650; letter-spacing: -0.02em; margin-bottom: 8px; }
+    .how-step p { font-size: 13px; color: var(--text2); line-height: 1.65; }
+
+    /* ──────────── PRICING ──────────── */
+    .pricing { border-top: 1px solid var(--border); }
+    .pricing-head { text-align: center; margin-bottom: 64px; }
+    .pricing-head .sec-label { justify-content: center; }
+    .pricing-head .sec-label::before { display: none; }
+    .pricing-head .sec-sub { max-width: 480px; margin: 0 auto; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 960px; margin: 0 auto; }
+    .p-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 14px; padding: 36px 32px;
+      position: relative; transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .p-card:hover { border-color: var(--border2); }
+    .p-card.feat {
+      border-color: rgba(99,102,241,0.4);
+      background: linear-gradient(170deg, var(--bg2), rgba(99,102,241,0.06));
+      box-shadow: 0 0 0 1px rgba(99,102,241,0.15), 0 24px 60px rgba(0,0,0,0.4);
+    }
+    .p-pill {
+      position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+      background: var(--accent); color: #fff;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 4px 14px; border-radius: 0 0 8px 8px;
+    }
+    .p-tier { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text3); margin-bottom: 12px; }
+    .p-price { font-size: 40px; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 6px; }
+    .p-price sup { font-size: 18px; font-weight: 600; color: var(--text2); vertical-align: super; }
+    .p-desc { font-size: 13px; color: var(--text2); margin-bottom: 26px; line-height: 1.6; }
+    .p-hr { border: none; border-top: 1px solid var(--border); margin-bottom: 22px; }
+    .p-feats { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-bottom: 28px; }
+    .p-feats li { font-size: 13px; color: var(--text2); display: flex; gap: 9px; }
+    .p-feats li::before { content: '↗'; color: var(--accent); font-size: 11px; font-weight: 700; flex-shrink: 0; padding-top: 2px; }
+    .p-btn {
+      width: 100%; padding: 13px; border-radius: 8px;
+      font-size: 14px; font-weight: 600; font-family: 'Inter', sans-serif;
+      letter-spacing: -0.01em; cursor: pointer; transition: all 0.2s;
+      border: 1px solid var(--border2); background: transparent; color: var(--text);
+    }
+    .p-btn:hover { background: rgba(255,255,255,0.05); }
+    .p-btn.pri {
+      background: var(--accent); border-color: transparent; color: #fff;
+      box-shadow: 0 0 24px rgba(99,102,241,0.4);
+    }
+    .p-btn.pri:hover { opacity: 0.88; box-shadow: 0 4px 32px rgba(99,102,241,0.5); }
+
+    /* ──────────── CONTACT ──────────── */
+    .contact { background: var(--bg2); border-top: 1px solid var(--border); }
+    .contact-inner { max-width: 600px; margin: 0 auto; }
+    .contact-head { text-align: center; margin-bottom: 48px; }
+    .contact-head .sec-label { justify-content: center; }
+    .contact-head .sec-label::before { display: none; }
+    .contact-head .sec-sub { max-width: 440px; margin: 12px auto 0; }
+    /* Simple form */
+    .cform {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden;
+    }
+    .cform-header {
+      background: var(--bg3); border-bottom: 1px solid var(--border);
+      padding: 14px 20px; display: flex; align-items: center; gap: 12px;
+    }
+    .cform-hdots { display: flex; gap: 6px; }
+    .cform-hdot { width: 10px; height: 10px; border-radius: 50%; }
+    .cform-hdot:nth-child(1) { background: #FF5F57; }
+    .cform-hdot:nth-child(2) { background: #FFBD2E; }
+    .cform-hdot:nth-child(3) { background: #28C840; }
+    .cform-htitle { font-size: 12px; color: var(--text3); font-weight: 500; margin-left: 4px; }
+    .cform-body { padding: 32px; }
+    .cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .cf-group { margin-bottom: 14px; }
+    .cf-group label { display: block; font-size: 11.5px; font-weight: 600; color: var(--text3); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 7px; }
+    .cf-group input, .cf-group select, .cf-group textarea {
+      width: 100%; background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 8px; padding: 11px 14px;
+      font-size: 14px; font-family: 'Inter', sans-serif; color: var(--text);
+      outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .cf-group input::placeholder, .cf-group textarea::placeholder { color: var(--text3); }
+    .cf-group input:focus, .cf-group select:focus, .cf-group textarea:focus {
+      border-color: var(--accent); box-shadow: 0 0 0 3px rgba(99,102,241,0.12);
+    }
+    .cf-group select { appearance: none; cursor: pointer; }
+    .cf-group select option { background: var(--bg2); }
+    .cf-group textarea { resize: vertical; min-height: 90px; }
+    .cf-err { border-color: rgba(248,113,113,0.5) !important; }
+    .cf-submit {
+      width: 100%; background: var(--accent); color: #fff; border: none;
+      padding: 14px; border-radius: 8px; font-size: 15px; font-weight: 600;
+      font-family: 'Inter', sans-serif; letter-spacing: -0.01em;
+      cursor: pointer; margin-top: 6px;
+      box-shadow: 0 0 28px rgba(99,102,241,0.35);
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .cf-submit:hover { opacity: 0.88; transform: translateY(-1px); }
+    .cf-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .cf-note { text-align: center; font-size: 12px; color: var(--text3); margin-top: 14px; }
+    /* Or divider */
+    .cf-or { display: flex; align-items: center; gap: 14px; margin: 22px 0; }
+    .cf-or-line { flex: 1; height: 1px; background: var(--border); }
+    .cf-or-text { font-size: 11px; color: var(--text3); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+    .cf-alt {
+      width: 100%; background: transparent; color: var(--text2);
+      border: 1px solid var(--border); padding: 13px; border-radius: 8px;
+      font-size: 14px; font-weight: 500; font-family: 'Inter', sans-serif;
+      cursor: pointer; transition: all 0.2s; text-align: center;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .cf-alt:hover { background: rgba(255,255,255,0.04); color: var(--text); border-color: rgba(255,255,255,0.15); }
+    /* Success */
+    .cf-success { padding: 60px 32px; text-align: center; }
+    .cf-success-ring {
+      width: 64px; height: 64px; border-radius: 50%;
+      border: 1px solid var(--accent); background: var(--accent-dim);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px; font-size: 26px;
+    }
+    .cf-success h3 { font-size: 22px; font-weight: 750; letter-spacing: -0.03em; margin-bottom: 10px; }
+    .cf-success p { font-size: 14px; color: var(--text2); }
+
+    /* ──────────── FOOTER ──────────── */
+    footer { border-top: 1px solid var(--border); padding: 40px 0; }
+    .footer-row { display: flex; align-items: center; justify-content: space-between; }
+    .footer-logo { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; letter-spacing: -0.03em; }
+    .footer-logo-mark {
+      width: 22px; height: 22px; border-radius: 5px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; font-weight: 800; color: #fff;
+    }
+    .footer-copy { font-size: 12.5px; color: var(--text3); }
+    .footer-links { display: flex; gap: 22px; list-style: none; }
+    .footer-links a { font-size: 12.5px; color: var(--text3); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text2); }
+
+    /* ──────────── RESPONSIVE ──────────── */
+    @media (max-width: 960px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 60px; }
+      .hero-right { display: none; }
+      .problem-grid { grid-template-columns: 1fr; gap: 56px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .roi-inner { grid-template-columns: 1fr; gap: 48px; }
+      .how-steps { grid-template-columns: repeat(2, 1fr); }
+      .how-steps::before { display: none; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
+      .footer-row { flex-direction: column; gap: 20px; text-align: center; }
+    }
+    @media (max-width: 640px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 130px 20px 70px; }
+      .container { padding: 0 20px; }
+      .cf-row { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-<a class="skip" href="#main">Skip to content</a>
+<div id="progress-bar"></div>
 
-<!-- ============ NAV ============ -->
-<header class="nav" id="nav">
-  <div class="nav-inner">
-    <a href="#top" class="wordmark" aria-label="PhysioReady home">
-      <span class="wordmark-icon" aria-hidden="true"><svg width="13" height="17" viewBox="0 0 13 17" fill="none" focusable="false"><path d="M6.5 16 C0.5 11 0.5 4 6.5 1 C12.5 4 12.5 11 6.5 16Z" fill="#E8ECDF" stroke="#7A8B6F" stroke-width="1.15" stroke-linejoin="round"/><line x1="6.5" y1="16" x2="6.5" y2="7.5" stroke="#7A8B6F" stroke-width="1" stroke-linecap="round"/></svg></span><span class="wordmark-text"><span class="part-physio">Physio</span><span class="part-ready">Ready</span></span>
-    </a>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#insights">Insights</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
-        <line x1="4" y1="8" x2="20" y2="8"/>
-        <line x1="4" y1="16" x2="20" y2="16"/>
-      </svg>
-    </button>
+<nav id="main-nav">
+  <div class="nav-logo">
+    <div class="nav-logo-mark">A</div>
+    Aevon
   </div>
-</header>
+  <ul class="nav-links">
+    <li><a href="#problem">Why Aevon</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#roi">ROI</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact" class="nav-cta">Start Building</a></li>
+  </ul>
+</nav>
 
-<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-  <div class="mobile-menu-head">
-    <a href="#top" class="wordmark" data-close>
-      <span class="wordmark-icon" aria-hidden="true"><svg width="13" height="17" viewBox="0 0 13 17" fill="none" focusable="false"><path d="M6.5 16 C0.5 11 0.5 4 6.5 1 C12.5 4 12.5 11 6.5 16Z" fill="#E8ECDF" stroke="#7A8B6F" stroke-width="1.15" stroke-linejoin="round"/><line x1="6.5" y1="16" x2="6.5" y2="7.5" stroke="#7A8B6F" stroke-width="1" stroke-linecap="round"/></svg></span><span class="wordmark-text"><span class="part-physio">Physio</span><span class="part-ready">Ready</span></span>
-    </a>
-    <button class="nav-toggle" id="navClose" aria-label="Close menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
-        <line x1="6" y1="6" x2="18" y2="18"/>
-        <line x1="18" y1="6" x2="6" y2="18"/>
-      </svg>
-    </button>
-  </div>
-  <div class="mobile-menu-list">
-    <a href="#about" data-close>About</a>
-    <a href="#services" data-close>Services</a>
-    <a href="#audience" data-close>Who it's for</a>
-    <a href="#insights" data-close>Insights</a>
-    <a href="#contact" data-close>Contact</a>
-  </div>
-  <div class="mobile-menu-foot">
-    <span>PhysioReady</span>
-    <span>Canada</span>
-  </div>
-</div>
+<div id="root"></div>
 
-<main id="main" role="main">
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel">
 
-<!-- ============ HERO ============ -->
-<section class="hero" id="top">
-  <div class="wrap">
-    <div class="hero-grid">
-      <div>
-        <span class="eyebrow">1:1 mentorship for physio school applicants</span>
-        <h1 style="margin-top: 26px;">
-          You don't have to <span class="accent">figure this out</span> alone.
-        </h1>
-        <p class="hero-sub">
-          One-on-one mentorship for students applying to physiotherapy school in Canada, from someone who recently sat where you're sitting.
-        </p>
-        <div class="hero-cta-row">
-          <a href="#contact" class="btn">
-            Book a free discovery call
-            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <line x1="5" y1="12" x2="19" y2="12"/>
-              <polyline points="13 6 19 12 13 18"/>
-            </svg>
-          </a>
-          <a href="#about" class="btn-ghost">Meet Gemma</a>
-        </div>
-        <div class="hero-meta">
-          <span><strong>UBC</strong> &middot; UofT &middot; McMaster <span style="color:var(--sage-deep);">+ more</span></span>
-          <span><strong>Free 15-min</strong> intro call, no pressure</span>
-        </div>
-      </div>
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "accentColor": "#6366F1",
+  "heroStyle": "split",
+  "showROI": true,
+  "bgTone": "navy"
+}/*EDITMODE-END*/;
 
-      <aside class="hero-card" aria-label="Quick overview">
-        <span class="hero-card-label">What's included</span>
-        <p class="hero-card-title">Support shaped around your stage, not a checklist.</p>
-        <ul>
-          <li>School selection &amp; prerequisite mapping</li>
-          <li>Personal statement strategy</li>
-          <li>Mock MMI interviews with feedback</li>
-          <li>A real person with experience to contact</li>
-        </ul>
-        <div class="hero-card-foot">
-          <span>Currently mentoring 26/27 cycle</span>
-          <span aria-hidden="true">→</span>
-        </div>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<!-- ============ ABOUT ============ -->
-<section class="about" id="about">
-  <div class="wrap">
-    <div class="about-grid">
-      <aside class="about-aside">
-        <span class="eyebrow">About</span>
-        <p class="signature" style="margin-top: 18px;">Gemma</p>
-        <p class="role">Founder &middot; MScPT student, UBC</p>
-        <ul class="about-creds" aria-label="Background">
-          <li>BSc Kinesiology</li>
-          <li>MScPT Student, UBC</li>
-          <li>Based in Vancouver</li>
-        </ul>
-      </aside>
-
-      <div class="about-body">
-        <h2>I started PhysioReady because I wished I'd had it.</h2>
-        <p class="first-line" style="margin-top: 36px;">
-          When I started applying to physiotherapy school, I felt completely lost. The information was scattered, the timelines were confusing, and I didn't know a single person who had been through it.
-        </p>
-        <p>
-          I'm a Kinesiology grad and a current first-year MScPT student at UBC. I applied to multiple Canadian physiotherapy programs across the country, received interview invitations from several of the most competitive ones, and was accepted on my first cycle.
-        </p>
-        <p>
-          I'm not sharing that to impress you. I'm sharing it because I remember exactly how overwhelming this felt, and I know how much a steady, honest voice would have changed the experience. That's the support I'm trying to be for the next round of applicants.
-        </p>
-        <p>
-          PhysioReady is small and intentionally so. Every student I work with gets real attention, real feedback, and a mentor who actually picks up the phone.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SERVICES ============ -->
-<section id="services">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Services</span>
-      <h2>Mentorship for every stage of your application.</h2>
-      <p class="lede">Choose the support that fits where you are right now. Every engagement is one-on-one and shaped to you.</p>
-    </div>
-
-    <div class="services-grid">
-      <article class="service-card">
-        <span class="service-num">01</span>
-        <div class="service-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 5h12l4 4v10a1 1 0 0 1-1 1H4z"/>
-            <polyline points="16 5 16 9 20 9"/>
-            <line x1="8" y1="13" x2="16" y2="13"/>
-            <line x1="8" y1="17" x2="13" y2="17"/>
-          </svg>
-        </div>
-        <h3>Application Mentorship</h3>
-        <p>School selection, prerequisite planning, activity descriptions, and personal statement strategy that actually sounds like you.</p>
-        <a href="#contact" class="btn-ghost">Get in touch
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
-        </a>
-      </article>
-
-      <article class="service-card">
-        <span class="service-num">02</span>
-        <div class="service-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15a2 2 0 0 1-2 2H8l-5 4V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-            <line x1="8" y1="10" x2="16" y2="10"/>
-            <line x1="8" y1="13" x2="13" y2="13"/>
-          </svg>
-        </div>
-        <h3>Interview Preparation</h3>
-        <p>MMI structure, mock interview sessions, and personalized feedback so you walk in clear, calm, and prepared.</p>
-        <a href="#contact" class="btn-ghost">Get in touch
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
-        </a>
-      </article>
-
-      <article class="service-card">
-        <span class="service-num">03</span>
-        <div class="service-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="9"/>
-            <polyline points="12 7 12 12 15 14"/>
-          </svg>
-        </div>
-        <h3>Full Cycle Support</h3>
-        <p>Ongoing 1:1 guidance from early preparation through to acceptance. A steady mentor through every decision.</p>
-        <a href="#contact" class="btn-ghost">Get in touch
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
-        </a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ INSIGHTS ============ -->
-<section id="insights" class="insights" style="border-top: 1px solid var(--hairline);">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">By the numbers</span>
-      <h2>Physiotherapy school in Canada, in context.</h2>
-      <p class="lede">A clear-eyed look at what applying to MPT programs in Canada actually involves. The numbers are part of why thoughtful preparation matters.</p>
-    </div>
-
-    <div class="insights-grid">
-      <article class="insight insight-wide">
-        <span class="insight-label">Acceptance rates &middot; recent cycles</span>
-        <h3 class="insight-title">Most Canadian MPT programs accept fewer than 1 in 8 applicants.</h3>
-        <div class="chart" role="img" aria-label="Approximate acceptance rates by Canadian physiotherapy program">
-          <div class="bar"><span class="bar-label">UBC</span><div class="bar-track"><div class="bar-fill" style="width: 12%"></div></div><span class="bar-val">~12%</span></div>
-          <div class="bar"><span class="bar-label">UofT</span><div class="bar-track"><div class="bar-fill" style="width: 9%"></div></div><span class="bar-val">~9%</span></div>
-          <div class="bar"><span class="bar-label">McMaster</span><div class="bar-track"><div class="bar-fill" style="width: 8%"></div></div><span class="bar-val">~8%</span></div>
-          <div class="bar"><span class="bar-label">Western</span><div class="bar-track"><div class="bar-fill" style="width: 14%"></div></div><span class="bar-val">~14%</span></div>
-          <div class="bar"><span class="bar-label">Queen's</span><div class="bar-track"><div class="bar-fill" style="width: 11%"></div></div><span class="bar-val">~11%</span></div>
-          <div class="bar"><span class="bar-label">Dalhousie</span><div class="bar-track"><div class="bar-fill" style="width: 18%"></div></div><span class="bar-val">~18%</span></div>
-        </div>
-        <p class="insight-note">Approximate, based on publicly reported figures across recent admissions cycles. Acceptance rates fluctuate yearly.</p>
-      </article>
-
-      <article class="insight insight-stat">
-        <span class="insight-label">Applicant pool</span>
-        <div class="big-number">3,000<span class="plus">+</span></div>
-        <p>Students apply to Canadian MPT programs each year. Most apply to multiple schools.</p>
-      </article>
-
-      <article class="insight insight-stat sage">
-        <span class="insight-label">Reapplicants</span>
-        <div class="big-number" style="font-size: clamp(38px, 6vw, 56px); line-height: 1.1;">A first try<br/>is not<br/>the only try.</div>
-        <p>Many successful applicants are accepted on a second or later cycle. We'll look at the gap honestly, and close it.</p>
-      </article>
-
-      <article class="insight insight-donut-wide">
-        <span class="insight-label">Where preparation pays off</span>
-        <h3 class="insight-title-sm">Interview weight in admissions</h3>
-        <div class="donut" aria-hidden="true">
-          <svg viewBox="0 0 120 120">
-            <circle cx="60" cy="60" r="48" fill="none" stroke="#E2DBCD" stroke-width="14"/>
-            <circle cx="60" cy="60" r="48" fill="none" stroke="#7A8B6F" stroke-width="14"
-              stroke-dasharray="180.6 301" stroke-dashoffset="75" transform="rotate(-90 60 60)" stroke-linecap="butt"/>
-            <text x="60" y="58" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="28" fill="#2A2724">60%</text>
-            <text x="60" y="74" text-anchor="middle" font-family="Manrope, sans-serif" font-size="7" letter-spacing="1.2" fill="#6B645C">of final score</text>
-          </svg>
-        </div>
-        <p>At several Canadian programs, the MMI carries more weight than your GPA at the final stage. Mock practice is non-negotiable.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ AUDIENCE ============ -->
-<section class="audience" id="audience">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Who it's for</span>
-      <h2>Wherever you are in the process, you're not behind.</h2>
-      <p class="lede">Applying to physio school is a multi-year process. Here's a realistic look at the timeline, and where mentorship fits at each stage.</p>
-    </div>
-
-    <div class="timeline-feature" aria-label="Application timeline">
-      <div class="tl-track" aria-hidden="true"></div>
-      <ol class="tl-list">
-        <li class="tl-item">
-          <div class="tl-node"><span class="tl-dot"></span></div>
-          <div class="tl-month">Year 1–2</div>
-          <div class="tl-event">Build prerequisites &amp; meaningful experience</div>
-        </li>
-        <li class="tl-item">
-          <div class="tl-node"><span class="tl-dot"></span></div>
-          <div class="tl-month">Summer</div>
-          <div class="tl-event">Draft personal statement &amp; school list</div>
-        </li>
-        <li class="tl-item">
-          <div class="tl-node"><span class="tl-dot"></span></div>
-          <div class="tl-month">Sep–Dec</div>
-          <div class="tl-event">Submit applications across programs</div>
-        </li>
-        <li class="tl-item">
-          <div class="tl-node"><span class="tl-dot"></span></div>
-          <div class="tl-month">Jan–Mar</div>
-          <div class="tl-event">Interview invites &amp; MMI prep</div>
-        </li>
-        <li class="tl-item">
-          <div class="tl-node"><span class="tl-dot tl-dot-final"></span></div>
-          <div class="tl-month">Apr–May</div>
-          <div class="tl-event">Decisions land</div>
-        </li>
-      </ol>
-    </div>
-
-    <div class="audience-grid">
-      <div class="persona">
-        <div class="persona-stage"><span class="dot" aria-hidden="true"></span>Stage one</div>
-        <h3>Early undergrad, mapping it out.</h3>
-        <p>You know you want this, but the prerequisites, volunteer hours, and timelines feel like a maze. Let's build a plan you can actually follow.</p>
-      </div>
-      <div class="persona">
-        <div class="persona-stage"><span class="dot" aria-hidden="true"></span>Stage two</div>
-        <h3>Final year, applying this cycle.</h3>
-        <p>You're deep in personal statements and program research and the deadlines feel close. We'll move through it together, calmly and on time.</p>
-      </div>
-      <div class="persona">
-        <div class="persona-stage"><span class="dot" aria-hidden="true"></span>Stage three</div>
-        <h3>Reapplicant, going again.</h3>
-        <p>One cycle didn't go the way you hoped. We'll look honestly at what to strengthen, and build an application that reflects how much you've grown.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CONTACT ============ -->
-<section class="contact" id="contact">
-  <div class="wrap">
-    <div class="contact-grid">
-      <div class="contact-intro">
-        <span class="eyebrow">Get in touch</span>
-        <h2 style="margin-top: 22px;">Work With Gemma</h2>
-        <div style="height: 22px;" aria-hidden="true"></div>
-        <p style="margin-top: 0;">
-          Every engagement starts with a free 15-minute discovery call. No pressure, no pitch. We'll talk through where you are, what you're hoping for, and whether mentorship is the right fit.
-        </p>
-        <p style="margin-top: 14px; color: #C9C2B5;">
-          I read and respond to every message myself, usually within two business days.
-        </p>
-
-        <div class="contact-direct">
-          <div class="label">Direct email</div>
-          <div class="row">
-            <a href="mailto:hello@physioready.ca">hello@physioready.ca</a>
-          </div>
-          <div class="label" style="margin-top: 18px;">Based in</div>
-          <div class="row" style="color:#F5F1EA;">Canada &middot; serving applicants nationwide</div>
-        </div>
-      </div>
-
-      <form class="form" id="contactForm" novalidate>
-        <div class="form-row">
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" autocomplete="name" required />
-        </div>
-        <div class="form-row">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" autocomplete="email" required />
-        </div>
-        <div class="form-row">
-          <label for="message">A little about where you are</label>
-          <textarea id="message" name="message" rows="4" required placeholder="Tell me a bit about where you are: current studies or career, programs you're considering, and what you're hoping to figure out."></textarea>
-        </div>
-        <button type="submit" class="btn">
-          Send message
-          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="5" y1="12" x2="19" y2="12"/>
-            <polyline points="13 6 19 12 13 18"/>
-          </svg>
-        </button>
-        <p class="form-foot">By submitting you agree to be contacted about a discovery call. Your information is never shared.</p>
-      </form>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<!-- ============ FOOTER ============ -->
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div class="footer-mark">
-        <a href="#top" class="wordmark" aria-label="PhysioReady home">
-          <span class="wordmark-icon" aria-hidden="true"><svg width="13" height="17" viewBox="0 0 13 17" fill="none" focusable="false"><path d="M6.5 16 C0.5 11 0.5 4 6.5 1 C12.5 4 12.5 11 6.5 16Z" fill="#E8ECDF" stroke="#7A8B6F" stroke-width="1.15" stroke-linejoin="round"/><line x1="6.5" y1="16" x2="6.5" y2="7.5" stroke="#7A8B6F" stroke-width="1" stroke-linecap="round"/></svg></span><span class="wordmark-text"><span class="part-physio">Physio</span><span class="part-ready">Ready</span></span>
-        </a>
-        <span class="tag">Canadian physiotherapy school admissions mentorship.</span>
-      </div>
-      <div class="footer-meta">
-        <a href="mailto:hello@physioready.ca">hello@physioready.ca</a>
-        <span>Canada</span>
-      </div>
-    </div>
-    <div class="footer-fine">
-      <span>© 2025 PhysioReady. All rights reserved.</span>
-      <span>Made with care in Canada.</span>
-    </div>
-  </div>
-</footer>
-
-<script>
-(function () {
-  // Sticky nav border on scroll
-  var nav = document.getElementById('nav');
-  var onScroll = function () {
-    if (window.scrollY > 8) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
-  };
-  document.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  // Mobile menu
-  var toggle = document.getElementById('navToggle');
-  var close  = document.getElementById('navClose');
-  var menu   = document.getElementById('mobileMenu');
-  function openMenu() {
-    menu.classList.add('open');
-    menu.setAttribute('aria-hidden', 'false');
-    toggle.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeMenu() {
-    menu.classList.remove('open');
-    menu.setAttribute('aria-hidden', 'true');
-    toggle.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  }
-  toggle.addEventListener('click', openMenu);
-  close.addEventListener('click', closeMenu);
-  menu.querySelectorAll('[data-close], a[href^="#"]').forEach(function (a) {
-    a.addEventListener('click', closeMenu);
-  });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeMenu();
-  });
-
-  // Form
-  var form = document.getElementById('contactForm');
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var name = form.querySelector('#name').value.trim();
-    var email = form.querySelector('#email').value.trim();
-    var message = form.querySelector('#message').value.trim();
-    if (!name || !email || !message) {
-      form.querySelectorAll('input, textarea').forEach(function (el) {
-        if (!el.value.trim()) el.style.borderBottomColor = '#C97B6B';
+/* ── hooks ── */
+function useScrollEffects() {
+  React.useEffect(() => {
+    // Progress bar
+    const bar = document.getElementById('progress-bar');
+    const nav = document.getElementById('main-nav');
+    const onScroll = () => {
+      const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+      bar.style.width = pct + '%';
+      if (window.scrollY > 40) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+  React.useEffect(() => {
+    const els = document.querySelectorAll('.fi');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const d = parseInt(e.target.dataset.delay || 0);
+          setTimeout(() => e.target.classList.add('vis'), d);
+        }
       });
-      return;
+    }, { threshold: 0.1 });
+    els.forEach(el => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+}
+
+/* ── Animated counter ── */
+function AnimCount({ target, prefix = '', suffix = '' }) {
+  const [val, setVal] = React.useState(0);
+  const ref = React.useRef();
+  React.useEffect(() => {
+    const io = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return;
+      io.disconnect();
+      let start = 0;
+      const step = target / 40;
+      const interval = setInterval(() => {
+        start += step;
+        if (start >= target) { setVal(target); clearInterval(interval); }
+        else setVal(Math.floor(start));
+      }, 30);
+    }, { threshold: 0.5 });
+    if (ref.current) io.observe(ref.current);
+    return () => io.disconnect();
+  }, [target]);
+  return <span ref={ref}>{prefix}{val.toLocaleString()}{suffix}</span>;
+}
+
+/* ── Hero Dashboard ── */
+function HeroDashboard() {
+  const bars = [35, 52, 48, 70, 45, 60, 88, 75, 68, 80];
+  return (
+    <div className="hero-right">
+      <div className="dashboard-wrap">
+        <div className="dashboard">
+          <div className="db-header">
+            <div className="db-dots">
+              <div className="db-dot"></div>
+              <div className="db-dot"></div>
+              <div className="db-dot"></div>
+            </div>
+            <div className="db-title">operations.aevon.app</div>
+            <div className="db-live-badge" style={{ marginLeft: 'auto' }}>
+              <div className="db-live-dot"></div>
+              Live
+            </div>
+          </div>
+          <div className="db-body">
+            <div className="db-metrics">
+              <div className="db-metric">
+                <div className="db-metric-label">Revenue</div>
+                <div className="db-metric-val">$48.2k</div>
+                <div className="db-metric-delta">↑ 12.4%</div>
+              </div>
+              <div className="db-metric">
+                <div className="db-metric-label">Open Tasks</div>
+                <div className="db-metric-val">24</div>
+                <div className="db-metric-delta">↑ 3 today</div>
+              </div>
+              <div className="db-metric">
+                <div className="db-metric-label">Team</div>
+                <div className="db-metric-val">12</div>
+                <div className="db-metric-delta">↑ 2 online</div>
+              </div>
+            </div>
+            <div className="db-chart">
+              <div className="db-chart-label">Weekly Output</div>
+              <div className="db-bars">
+                {bars.map((h, i) => (
+                  <div key={i} className="db-bar" style={{ height: h + '%', animationDelay: i * 0.05 + 's' }}></div>
+                ))}
+              </div>
+            </div>
+            <div className="db-feed">
+              {[
+                { col: '#4ade80', text: 'Contract signed — Meridian Group', time: '2m ago' },
+                { col: '#818cf8', text: 'Invoice #1042 auto-generated', time: '14m ago' },
+                { col: '#fbbf24', text: 'Approval pending — Q2 budget', time: '1h ago' },
+              ].map((item, i) => (
+                <div className="db-feed-item" key={i}>
+                  <div className="db-feed-dot" style={{ background: item.col }}></div>
+                  <div className="db-feed-text">{item.text}</div>
+                  <div className="db-feed-time">{item.time}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="db-notif">
+          <div className="db-notif-icon">✓</div>
+          <div>
+            <div className="db-notif-title">Workflow automated</div>
+            <div className="db-notif-sub">Saved 4.5h this week</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── Terminal ── */
+function Terminal() {
+  return (
+    <div className="terminal">
+      <div className="term-header">
+        <div className="term-dots">
+          <div className="term-dot"></div><div className="term-dot"></div><div className="term-dot"></div>
+        </div>
+        <div className="term-name">aevon — before & after</div>
+      </div>
+      <div className="term-body">
+        <div className="term-line"><span className="term-prompt">$</span><span className="term-cmd"> export monday_tasks.xlsx</span></div>
+        <div className="term-out">Copying 847 rows to Google Sheets...</div>
+        <div className="term-err">Error: column mismatch on row 312</div>
+        <div className="term-out">Manually fixing 47 formatting issues...</div>
+        <div className="term-err">Sending to accounting via email...</div>
+        <div className="term-out" style={{marginBottom:16}}><span style={{color:'#f87171'}}>3.5 hours wasted. Every week.</span></div>
+        <div className="term-line"><span className="term-prompt" style={{color:'#4ade80'}}>$</span><span className="term-cmd" style={{color:'#86efac'}}> aevon sync --workflow=weekly-export</span></div>
+        <div className="term-ok">Syncing 847 records... done.</div>
+        <div className="term-ok">Generating report... done.</div>
+        <div className="term-ok">Notifying accounting... done.</div>
+        <div className="term-ok" style={{marginBottom:4}}>Completed in 12 seconds.</div>
+        <span className="term-cursor"></span>
+      </div>
+    </div>
+  );
+}
+
+/* ── ROI Calculator ── */
+function ROICalc() {
+  const [employees, setEmployees] = React.useState(8);
+  const [hours, setHours] = React.useState(5);
+  const [rate, setRate] = React.useState(45);
+  const annual = Math.round(employees * hours * 52 * rate);
+  const payback = Math.max(1, Math.round(12500 / (annual / 12)));
+  return (
+    <div className="roi-calc">
+      <div className="roi-sliders">
+        <div className="roi-slider-group">
+          <label>Employees affected <span>{employees} people</span></label>
+          <input type="range" min={1} max={50} value={employees} onChange={e => setEmployees(+e.target.value)} />
+        </div>
+        <div className="roi-slider-group">
+          <label>Hours lost per week <span>{hours}h / person</span></label>
+          <input type="range" min={1} max={20} value={hours} onChange={e => setHours(+e.target.value)} />
+        </div>
+        <div className="roi-slider-group">
+          <label>Average hourly rate <span>${rate}/hr</span></label>
+          <input type="range" min={15} max={150} step={5} value={rate} onChange={e => setRate(+e.target.value)} />
+        </div>
+      </div>
+      <hr className="roi-divider" />
+      <div className="roi-result-label">Annual cost of manual work</div>
+      <div className="roi-result-num">${annual.toLocaleString()}</div>
+      <div className="roi-result-sub">Your team loses this much in productivity every year to manual, automatable tasks.</div>
+      <div className="roi-payback">
+        A custom Aevon app typically pays for itself in <strong>{payback} month{payback > 1 ? 's' : ''}</strong> — then keeps saving.
+      </div>
+    </div>
+  );
+}
+
+/* ── Contact Form ── */
+function ContactForm() {
+  const [fields, setFields] = React.useState({ name: '', email: '', need: '', message: '' });
+  const [errors, setErrors] = React.useState({});
+  const [state, setState] = React.useState('idle'); // idle | loading | success
+
+  const set = k => e => setFields(f => ({ ...f, [k]: e.target.value }));
+
+  const validate = () => {
+    const e = {};
+    if (!fields.name.trim()) e.name = true;
+    if (!fields.email.match(/\S+@\S+\.\S+/)) e.email = true;
+    if (!fields.need) e.need = true;
+    return e;
+  };
+
+  const submit = ev => {
+    ev.preventDefault();
+    const e = validate();
+    setErrors(e);
+    if (Object.keys(e).length) return;
+    setState('loading');
+    setTimeout(() => setState('success'), 1500);
+  };
+
+  if (state === 'success') {
+    return (
+      <div className="cf-success">
+        <div className="cf-success-ring">✓</div>
+        <h3>You're in the queue.</h3>
+        <p style={{ color: 'var(--text2)', fontSize: 14 }}>We'll reach out within one business day to schedule a 30-minute discovery call.</p>
+      </div>
+    );
+  }
+
+  const err = k => errors[k] ? 'cf-err' : '';
+
+  return (
+    <form onSubmit={submit} noValidate>
+      <div className="cform-body">
+        <div className="cf-row">
+          <div className="cf-group">
+            <label>Your Name</label>
+            <input className={err('name')} placeholder="Jane Smith" value={fields.name} onChange={set('name')} />
+          </div>
+          <div className="cf-group">
+            <label>Work Email</label>
+            <input className={err('email')} type="email" placeholder="jane@company.com" value={fields.email} onChange={set('email')} />
+          </div>
+        </div>
+        <div className="cf-group">
+          <label>What do you need built?</label>
+          <select className={err('need')} value={fields.need} onChange={set('need')}>
+            <option value="">Select a category…</option>
+            <option>Internal Tool / Dashboard</option>
+            <option>Document Workflow & E-signing</option>
+            <option>Booking & Scheduling System</option>
+            <option>AI-Powered Application</option>
+            <option>Something custom</option>
+          </select>
+        </div>
+        <div className="cf-group">
+          <label>Describe the problem (optional)</label>
+          <textarea placeholder="What's the bottleneck? What's taking too long?" value={fields.message} onChange={set('message')} />
+        </div>
+        <button className="cf-submit" type="submit" disabled={state === 'loading'}>
+          {state === 'loading' ? 'Sending…' : 'Send Message →'}
+        </button>
+        <p className="cf-note">No pressure. No spam. Just a conversation about your workflow.</p>
+        <div className="cf-or">
+          <div className="cf-or-line"></div>
+          <div className="cf-or-text">or</div>
+          <div className="cf-or-line"></div>
+        </div>
+        <button type="button" className="cf-alt" onClick={() => alert('Calendar booking coming soon!')}>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="2" width="14" height="13" rx="2" stroke="currentColor" strokeWidth="1.3"/><path d="M1 6h14" stroke="currentColor" strokeWidth="1.3"/><path d="M5 1v2M11 1v2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/></svg>
+          Book a 30-min discovery call
+        </button>
+      </div>
+    </form>
+  );
+}
+
+/* ── Main App ── */
+function App() {
+  const [tweaks, setTweak] = useTweaks(TWEAK_DEFAULTS);
+  useScrollEffects();
+
+  React.useEffect(() => {
+    document.documentElement.style.setProperty('--accent', tweaks.accentColor);
+    const isViolet = tweaks.accentColor === '#7C3AED';
+    document.documentElement.style.setProperty('--accent2', isViolet ? '#6366F1' : '#7C3AED');
+    document.documentElement.style.setProperty('--accent-glow', tweaks.accentColor + '38');
+    document.documentElement.style.setProperty('--accent-dim', tweaks.accentColor + '1a');
+    document.documentElement.style.setProperty('--border', tweaks.accentColor + '1e');
+    document.documentElement.style.setProperty('--border2', tweaks.accentColor + '40');
+    // bg tone
+    if (tweaks.bgTone === 'navy') {
+      document.documentElement.style.setProperty('--bg', '#09090B');
+      document.documentElement.style.setProperty('--bg2', '#0A0F1E');
+      document.documentElement.style.setProperty('--bg3', '#0F1629');
+    } else {
+      document.documentElement.style.setProperty('--bg', '#0a0a0a');
+      document.documentElement.style.setProperty('--bg2', '#111111');
+      document.documentElement.style.setProperty('--bg3', '#171717');
     }
-    form.innerHTML = ''
-      + '<div class="form-success">'
-      +   '<div class="check" aria-hidden="true">'
-      +     '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'
-      +   '</div>'
-      +   '<h3>Message received.</h3>'
-      +   '<p>Thank you, ' + name.split(' ')[0] + '. I\'ll be in touch within two business days to set up your discovery call.</p>'
-      + '</div>';
-  });
+  }, [tweaks.accentColor, tweaks.bgTone]);
 
-  // Reset error border on input
-  document.querySelectorAll('.form input, .form textarea').forEach(function (el) {
-    el.addEventListener('input', function () { el.style.borderBottomColor = ''; });
-  });
-})();
+  const problems = [
+    { n: '01', title: 'Forced Workarounds', body: 'Your team duct-tapes three SaaS tools together because none of them fully fit. Every handoff breaks.' },
+    { n: '02', title: 'Subscription Bloat', body: 'You\'re paying monthly for features you don\'t use — and missing the ones you actually need.' },
+    { n: '03', title: 'Data Trapped in Silos', body: 'Hours wasted copying data between systems. Nothing talks to anything else.' },
+    { n: '04', title: 'Built for Everyone', body: 'Generic tools slow your team down. They\'re designed for the average business — not yours.' },
+  ];
+
+  const services = [
+    { tag: 'Internal Tools', title: 'Custom Internal Applications', body: 'Replace your spreadsheet chaos with a purpose-built tool your whole team actually wants to use. Real-time data, custom roles, workflows that match how you work.', feats: ['Custom user roles & permissions', 'Real-time dashboards & reporting', 'Integrates with your existing stack'] },
+    { tag: 'Documents', title: 'Document Signing & Automation', body: 'End-to-end document automation — generation, routing, e-signature, and secure archiving. No more PDFs emailed back and forth.', feats: ['Automated document generation', 'Built-in e-signature workflows', 'Compliance-ready audit trails'] },
+    { tag: 'Scheduling', title: 'Booking & Scheduling Systems', body: 'Smart scheduling that understands your real-world constraints — staff availability, service types, locations, and client preferences.', feats: ['Multi-staff & resource scheduling', 'Client self-booking portal', 'Automated reminders & notifications'] },
+    { tag: 'AI-Powered', title: 'AI-Enhanced Applications', body: 'Practical AI that automates your repetitive cognitive work — summarizing documents, classifying tickets, generating responses, flagging anomalies.', feats: ['LLM-powered document analysis', 'Automated data classification', 'Intelligent workflow triggers'] },
+  ];
+
+  const steps = [
+    { n: '01', title: 'Discovery Call', body: 'We map your workflow gaps, pain points, and what success looks like for your team.' },
+    { n: '02', title: 'Scoped Proposal', body: 'You get a clear, fixed-price proposal with timeline. No surprises, no ambiguity.' },
+    { n: '03', title: 'Build & Iterate', body: 'We build fast with regular previews. You give direct feedback throughout.' },
+    { n: '04', title: 'Launch & Own', body: 'We deploy, train your team, and hand over the source code. It\'s yours.' },
+  ];
+
+  const plans = [
+    { tier: 'Starter', price: '4,900', desc: 'A focused single-workflow app for one core process.', feats: ['1 core workflow', 'Up to 3 user roles', 'Basic dashboard', '30-day support', 'Full source code'], cta: 'Get a Quote', featured: false },
+    { tier: 'Business', price: '12,500', desc: 'A full-featured tool for your whole team.', feats: ['Multiple workflows', 'Unlimited users', 'Advanced analytics', 'Integrations included', '90-day support + training'], cta: 'Start Building', featured: true },
+    { tier: 'Enterprise', price: 'Custom', desc: 'Multi-system, complex apps built to scale.', feats: ['Full custom scope', 'AI/ML integrations', 'Enterprise security', 'Dedicated PM', 'Ongoing maintenance'], cta: "Let's Talk", featured: false },
+  ];
+
+  return (
+    <>
+      {/* HERO */}
+      <section className="hero">
+        <div className="hero-grid"></div>
+        <div className="hero-inner">
+          <div className="hero-left">
+            <div className="hero-badge fi vis">
+              <div className="badge-dot"></div>
+              Custom App Development for SMBs
+            </div>
+            <h1 className="fi vis" style={{ transitionDelay: '0.05s' }}>
+              Your business doesn't<br />fit in a box.<br /><span className="grad">Stop forcing it to.</span>
+            </h1>
+            <p className="hero-sub fi vis" style={{ transitionDelay: '0.1s' }}>
+              Generic SaaS tools are built for every business — which means they're perfect for none. We build software that fits exactly how your team works.
+            </p>
+            <div className="hero-ctas fi vis" style={{ transitionDelay: '0.15s' }}>
+              <a href="#contact" className="btn-pri">Start Building →</a>
+              <a href="#services" className="btn-sec">See Our Work</a>
+            </div>
+            <p className="hero-trust fi vis" style={{ transitionDelay: '0.2s' }}>No subscriptions. No workarounds. Built for you.</p>
+          </div>
+          <HeroDashboard />
+        </div>
+      </section>
+
+      {/* PROBLEM */}
+      <section className="problem" id="problem">
+        <div className="container">
+          <div className="problem-grid">
+            <div className="problem-left fi">
+              <div className="sec-label">The Problem</div>
+              <h2 className="sec-title">SaaS leaves gaps.<br />Your team fills them manually.</h2>
+              <div className="prob-items">
+                {problems.map((p, i) => (
+                  <div className="prob-item fi" key={p.n} data-delay={i * 80}>
+                    <div className="prob-num">{p.n}</div>
+                    <div>
+                      <h4>{p.title}</h4>
+                      <p>{p.body}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="fi" data-delay="150">
+              <Terminal />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section className="services" id="services">
+        <div className="container">
+          <div className="services-head fi">
+            <div className="sec-label">What We Build</div>
+            <h2 className="sec-title">One tool. Built for your workflow.</h2>
+            <p className="sec-sub">We focus on the four app types small and mid-sized businesses need most.</p>
+          </div>
+          <div className="services-grid">
+            {services.map((s, i) => (
+              <div className="svc-card fi" key={s.tag} data-delay={i * 80}>
+                <div className="svc-tag">{s.tag}</div>
+                <h3>{s.title}</h3>
+                <p>{s.body}</p>
+                <ul className="svc-features">
+                  {s.feats.map(f => <li key={f}>{f}</li>)}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ROI */}
+      {tweaks.showROI && (
+        <section className="roi" id="roi">
+          <div className="container">
+            <div className="roi-inner">
+              <div className="roi-left fi">
+                <div className="sec-label">ROI Calculator</div>
+                <h2 className="sec-title">See what manual work is really costing you.</h2>
+                <p className="sec-sub">Most teams underestimate the hidden cost of workarounds. Calculate your annual loss — then see how fast a custom app pays for itself.</p>
+                <div style={{ marginTop: 32, display: 'flex', gap: 32 }}>
+                  <div>
+                    <div style={{ fontSize: 11, color: 'var(--text3)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 700, marginBottom: 4 }}>Avg. time to build</div>
+                    <div style={{ fontSize: 26, fontWeight: 800, letterSpacing: '-0.04em' }}><AnimCount target={6} suffix=" weeks" /></div>
+                  </div>
+                  <div>
+                    <div style={{ fontSize: 11, color: 'var(--text3)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 700, marginBottom: 4 }}>Apps delivered</div>
+                    <div style={{ fontSize: 26, fontWeight: 800, letterSpacing: '-0.04em' }}><AnimCount target={40} suffix="+" /></div>
+                  </div>
+                </div>
+              </div>
+              <div className="fi" data-delay="150">
+                <ROICalc />
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* HOW */}
+      <section className="how" id="how">
+        <div className="container">
+          <div className="how-head fi">
+            <div className="sec-label">Process</div>
+            <h2 className="sec-title">From idea to shipped in weeks.</h2>
+            <p className="sec-sub">A clear, lightweight process. You stay in control without drowning in meetings.</p>
+          </div>
+          <div className="how-steps">
+            {steps.map((s, i) => (
+              <div className="how-step fi" key={s.n} data-delay={i * 90}>
+                <div className="step-circle"><span>{s.n}</span></div>
+                <h3>{s.title}</h3>
+                <p>{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PRICING */}
+      <section className="pricing" id="pricing">
+        <div className="container">
+          <div className="pricing-head fi">
+            <div className="sec-label">Pricing</div>
+            <h2 className="sec-title">One-time build. You own it.</h2>
+            <p className="sec-sub">Pay once, own your software forever. No monthly fees. Optional support retainers available.</p>
+          </div>
+          <div className="pricing-grid">
+            {plans.map((p, i) => (
+              <div className={`p-card fi ${p.featured ? 'feat' : ''}`} key={p.tier} data-delay={i * 80}>
+                {p.featured && <div className="p-pill">Most Popular</div>}
+                <div className="p-tier">{p.tier}</div>
+                <div className="p-price">
+                  {p.price === 'Custom' ? 'Custom' : <><sup>$</sup>{p.price}</>}
+                </div>
+                <p className="p-desc">{p.desc}</p>
+                <hr className="p-hr" />
+                <ul className="p-feats">
+                  {p.feats.map(f => <li key={f}>{f}</li>)}
+                </ul>
+                <button className={`p-btn ${p.featured ? 'pri' : ''}`}
+                  onClick={() => document.getElementById('contact').scrollIntoView()}>
+                  {p.cta}
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section className="contact" id="contact">
+        <div className="container">
+          <div className="contact-head fi">
+            <div className="sec-label">Get Started</div>
+            <h2 className="sec-title">Tell us what you need.</h2>
+            <p className="sec-sub">We'll reply within one business day.</p>
+          </div>
+          <div className="contact-inner fi" data-delay="100">
+            <div className="cform">
+              <div className="cform-header">
+                <div className="cform-hdots">
+                  <div className="cform-hdot"></div>
+                  <div className="cform-hdot"></div>
+                  <div className="cform-hdot"></div>
+                </div>
+                <div className="cform-htitle">new-project-inquiry.aevon</div>
+              </div>
+              <ContactForm />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer>
+        <div className="container">
+          <div className="footer-row">
+            <div className="footer-logo">
+              <div className="footer-logo-mark">A</div>
+              Aevon
+            </div>
+            <p className="footer-copy">© 2026 Aevon. Custom software for businesses that move fast.</p>
+            <ul className="footer-links">
+              <li><a href="#problem">Why Aevon</a></li>
+              <li><a href="#pricing">Pricing</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+
+      {/* TWEAKS */}
+      <TweaksPanel>
+        <TweakSection label="Accent Color">
+          <TweakRadio label="Color" id="accentColor"
+            options={['#6366F1', '#7C3AED']}
+            value={tweaks.accentColor} onChange={v => setTweak('accentColor', v)} />
+        </TweakSection>
+        <TweakSection label="Background">
+          <TweakRadio label="Tone" id="bgTone"
+            options={['navy', 'charcoal']}
+            value={tweaks.bgTone} onChange={v => setTweak('bgTone', v)} />
+        </TweakSection>
+        <TweakSection label="Sections">
+          <TweakToggle label="Show ROI Calculator" id="showROI"
+            value={tweaks.showROI} onChange={v => setTweak('showROI', v)} />
+        </TweakSection>
+      </TweaksPanel>
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 </script>
-
 </body>
 </html>
