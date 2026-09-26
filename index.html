@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>PhysioReady | Canadian Physiotherapy School Admissions Mentorship</title>
-<meta name="description" content="Personalized 1:1 mentorship for students applying to physiotherapy school in Canada. Application support, MMI interview prep, and full cycle guidance from a UBC MScPT student." />
+<meta name="description" content="Personalized 1:1 mentorship for students applying to physiotherapy school in Canada. Application support, MMI interview prep, and full cycle guidance from an incoming UBC MPT student." />
 <meta name="theme-color" content="#F5F1EA" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,7 +17,7 @@
   "@type": "Person",
   "name": "Gemma",
   "jobTitle": "Physiotherapy School Admissions Mentor",
-  "description": "First-year MScPT student at the University of British Columbia and founder of PhysioReady, a 1:1 mentorship practice for Canadian physiotherapy school applicants.",
+  "description": "Incoming Master of Physical Therapy (MPT) student at the University of British Columbia and founder of PhysioReady, a 1:1 mentorship practice for Canadian physiotherapy school applicants.",
   "alumniOf": {
     "@type": "CollegeOrUniversity",
     "name": "University of British Columbia"
@@ -25,10 +25,11 @@
   "knowsAbout": [
     "Physiotherapy school admissions",
     "MMI interview preparation",
-    "Canadian MScPT applications",
+    "Canadian MPT applications",
     "UBC physiotherapy",
     "McMaster physiotherapy",
     "University of Toronto physiotherapy",
+    "University of Alberta physiotherapy",
     "Dalhousie physiotherapy"
   ],
   "worksFor": {
@@ -62,9 +63,9 @@
   },
   "priceRange": "$$",
   "serviceType": [
+    "Early Physiotherapy Career Planning",
     "Physiotherapy School Application Mentorship",
-    "MMI Interview Preparation",
-    "Full Cycle Admissions Support"
+    "MMI Interview Preparation"
   ]
 }
 </script>
@@ -616,6 +617,38 @@
     line-height: 1.6;
   }
 
+  /* Pricing */
+  .pricing { margin-top: 56px; padding-top: 44px; border-top: 1px solid var(--hairline-2); }
+  @media (min-width: 820px) { .pricing { margin-top: 80px; padding-top: 64px; } }
+  .pricing-head { display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
+  .pricing-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+  @media (min-width: 760px) { .pricing-grid { grid-template-columns: repeat(3, 1fr); gap: 22px; } }
+  .price-card {
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius);
+    padding: 26px 24px 28px;
+    display: flex; flex-direction: column;
+  }
+  .price-rec {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sage-deep);
+    font-weight: 600;
+  }
+  .price-card h3 { margin-top: 14px; font-size: clamp(21px, 2.4vw, 23px); }
+  .price {
+    margin-top: 10px;
+    font-family: var(--serif);
+    font-size: 40px;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .price span { font-family: var(--sans); font-size: 12px; letter-spacing: 0.1em; color: var(--muted); }
+  .price-card p { margin-top: 16px; color: var(--ink-soft); font-size: 15px; line-height: 1.6; }
+  .price-card .price-note { margin-top: auto; padding-top: 14px; font-size: 13px; color: var(--muted); }
+
   /* ---------- Insights ---------- */
   .insights-grid {
     display: grid;
@@ -1107,27 +1140,27 @@
       <aside class="about-aside">
         <span class="eyebrow">About</span>
         <p class="signature" style="margin-top: 18px;">Gemma</p>
-        <p class="role">Founder &middot; MScPT student, UBC</p>
+        <p class="role">Founder &middot; Interview Coach &amp; Community Mentor</p>
         <ul class="about-creds" aria-label="Background">
           <li>BSc Kinesiology</li>
-          <li>MScPT Student, UBC</li>
+          <li>Incoming UBC MPT, Class of 2028</li>
           <li>Based in Vancouver</li>
         </ul>
       </aside>
 
       <div class="about-body">
-        <h2>I started PhysioReady because I wished I'd had it.</h2>
+        <h2>I started PhysioReady to pass on the mentorship I was given.</h2>
         <p class="first-line" style="margin-top: 36px;">
-          When I started applying to physiotherapy school, I felt completely lost. The information was scattered, the timelines were confusing, and I didn't know a single person who had been through it.
+          When I started applying to physiotherapy school, the information was scattered, the timelines were confusing, and the process was hard to navigate without knowing someone who had been through it.
         </p>
         <p>
-          I'm a Kinesiology grad and a current first-year MScPT student at UBC. I applied to multiple Canadian physiotherapy programs across the country, received interview invitations from several of the most competitive ones, and was accepted on my first cycle.
+          I'm a Kinesiology grad and incoming UBC Master of Physical Therapy (MPT) student. I applied to multiple Canadian physiotherapy programs across the country, received interview invitations from several competitive programs, and was accepted on my first cycle.
         </p>
         <p>
-          I'm not sharing that to impress you. I'm sharing it because I remember exactly how overwhelming this felt, and I know how much a steady, honest voice would have changed the experience. That's the support I'm trying to be for the next round of applicants.
+          I was fortunate to have mentors who helped me make informed decisions and prepare for each stage of the application. I created PhysioReady to give future applicants that same honest, personalized support.
         </p>
         <p>
-          PhysioReady is small and intentionally so. Every student I work with gets real attention, real feedback, and a mentor who actually picks up the phone.
+          Whether you're exploring physiotherapy, planning your undergrad, submitting MPT applications, or preparing for an interview, I'll help you navigate each stage. PhysioReady is intentionally small, so every student gets thoughtful attention tailored to their goals.
         </p>
       </div>
     </div>
@@ -1140,12 +1173,27 @@
     <div class="section-head">
       <span class="eyebrow">Services</span>
       <h2>Mentorship for every stage of your application.</h2>
-      <p class="lede">Choose the support that fits where you are right now. Every engagement is one-on-one and shaped to you.</p>
+      <p class="lede">Support is organized into three stages. Start wherever you are right now. Every session is one-on-one and shaped to you.</p>
     </div>
 
     <div class="services-grid">
       <article class="service-card">
-        <span class="service-num">01</span>
+        <span class="service-num">Stage 01</span>
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/>
+            <polyline points="12 7 12 12 15 14"/>
+          </svg>
+        </div>
+        <h3>Exploring &amp; Preparing Early</h3>
+        <p>For early undergrads building a strong foundation: understanding the profession, choosing volunteer and clinical experience, protecting your GPA, and mapping a long-term plan.</p>
+        <a href="#contact" class="btn-ghost">Get in touch
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+        </a>
+      </article>
+
+      <article class="service-card">
+        <span class="service-num">Stage 02</span>
         <div class="service-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4 5h12l4 4v10a1 1 0 0 1-1 1H4z"/>
@@ -1154,15 +1202,15 @@
             <line x1="8" y1="17" x2="13" y2="17"/>
           </svg>
         </div>
-        <h3>Application Mentorship</h3>
-        <p>School selection, prerequisite planning, activity descriptions, and personal statement strategy that actually sounds like you.</p>
+        <h3>Building a Competitive Application</h3>
+        <p>A personalized strategy and timeline, CASPer prep, and school-specific guidance for up to six Canadian MPT programs, including support for reapplicants and non-traditional prerequisite pathways.</p>
         <a href="#contact" class="btn-ghost">Get in touch
           <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
         </a>
       </article>
 
       <article class="service-card">
-        <span class="service-num">02</span>
+        <span class="service-num">Stage 03</span>
         <div class="service-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 15a2 2 0 0 1-2 2H8l-5 4V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
@@ -1171,22 +1219,7 @@
           </svg>
         </div>
         <h3>Interview Preparation</h3>
-        <p>MMI structure, mock interview sessions, and personalized feedback so you walk in clear, calm, and prepared.</p>
-        <a href="#contact" class="btn-ghost">Get in touch
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
-        </a>
-      </article>
-
-      <article class="service-card">
-        <span class="service-num">03</span>
-        <div class="service-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="9"/>
-            <polyline points="12 7 12 12 15 14"/>
-          </svg>
-        </div>
-        <h3>Full Cycle Support</h3>
-        <p>Ongoing 1:1 guidance from early preparation through to acceptance. A steady mentor through every decision.</p>
+        <p>MMI strategies, realistic practice stations, and detailed feedback for UBC, McMaster, UofT and other formats. No scripts, just confidence sharing your own experiences.</p>
         <a href="#contact" class="btn-ghost">Get in touch
           <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
         </a>
@@ -1210,6 +1243,7 @@
         <h3 class="insight-title">Most Canadian MPT programs accept fewer than 1 in 8 applicants.</h3>
         <div class="chart" role="img" aria-label="Approximate acceptance rates by Canadian physiotherapy program">
           <div class="bar"><span class="bar-label">UBC</span><div class="bar-track"><div class="bar-fill" style="width: 12%"></div></div><span class="bar-val">~12%</span></div>
+          <div class="bar"><span class="bar-label">UofA</span><div class="bar-track"><div class="bar-fill" style="width: 13%"></div></div><span class="bar-val">~13%</span></div>
           <div class="bar"><span class="bar-label">UofT</span><div class="bar-track"><div class="bar-fill" style="width: 9%"></div></div><span class="bar-val">~9%</span></div>
           <div class="bar"><span class="bar-label">McMaster</span><div class="bar-track"><div class="bar-fill" style="width: 8%"></div></div><span class="bar-val">~8%</span></div>
           <div class="bar"><span class="bar-label">Western</span><div class="bar-track"><div class="bar-fill" style="width: 14%"></div></div><span class="bar-val">~14%</span></div>
@@ -1292,18 +1326,46 @@
     <div class="audience-grid">
       <div class="persona">
         <div class="persona-stage"><span class="dot" aria-hidden="true"></span>Stage one</div>
-        <h3>Early undergrad, mapping it out.</h3>
-        <p>You know you want this, but the prerequisites, volunteer hours, and timelines feel like a maze. Let's build a plan you can actually follow.</p>
+        <h3>Exploring physio, preparing early.</h3>
+        <p>You're early in your undergrad and want to build a strong foundation: the right experience, a protected GPA, and a plan in place well before application season.</p>
       </div>
       <div class="persona">
         <div class="persona-stage"><span class="dot" aria-hidden="true"></span>Stage two</div>
-        <h3>Final year, applying this cycle.</h3>
-        <p>You're deep in personal statements and program research and the deadlines feel close. We'll move through it together, calmly and on time.</p>
+        <h3>Applying this cycle, or again.</h3>
+        <p>You're balancing school with applications to multiple programs, or reapplying after a tough cycle. We'll build a personalized strategy and get you ready well before deadlines.</p>
       </div>
       <div class="persona">
         <div class="persona-stage"><span class="dot" aria-hidden="true"></span>Stage three</div>
-        <h3>Reapplicant, going again.</h3>
-        <p>One cycle didn't go the way you hoped. We'll look honestly at what to strengthen, and build an application that reflects how much you've grown.</p>
+        <h3>Interview invite in hand.</h3>
+        <p>Congratulations. Now it's time to turn that interview into an acceptance with realistic practice, honest feedback, and confidence that stays true to you.</p>
+      </div>
+    </div>
+
+    <div class="pricing">
+      <div class="pricing-head">
+        <span class="eyebrow">Sessions &amp; pricing</span>
+        <p class="lede">Not sure which fits? Start with the free 15-minute discovery call.</p>
+      </div>
+      <div class="pricing-grid">
+        <article class="price-card">
+          <span class="price-rec">Recommended for Stages 1&ndash;2</span>
+          <h3>30-Minute Q&amp;A</h3>
+          <div class="price">$60 <span>CAD</span></div>
+          <p>Focused mentorship on exploring the profession, volunteer and course planning, GPA strategy, and building a plan early rather than fixing gaps later.</p>
+          <p class="price-note">Does not include mock MMI or interview practice.</p>
+        </article>
+        <article class="price-card">
+          <span class="price-rec">Recommended for Stages 2&ndash;3</span>
+          <h3>60-Minute Interview Coaching</h3>
+          <div class="price">$100 <span>CAD</span></div>
+          <p>Interview scenarios, strategies for different question types, and storytelling practice, plus school-specific advice and application guidance.</p>
+        </article>
+        <article class="price-card">
+          <span class="price-rec">Recommended for Stage 3</span>
+          <h3>90-Minute Full Mock MMI</h3>
+          <div class="price">$150 <span>CAD</span></div>
+          <p>Back-to-back stations modelled on the roughly 80-minute UBC MMI, with detailed feedback after each round and difficulty that builds as you do.</p>
+        </article>
       </div>
     </div>
   </div>
